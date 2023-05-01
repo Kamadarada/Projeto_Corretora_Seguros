@@ -15,4 +15,18 @@ html {
 
 body {
   margin-bottom: 60px;
+  background-color:whitesmoke;
+}
+
+h1{
+    text-align:center;
+    padding:5px;
+}
+
+h2{
+    padding:10px;
+}
+
+.btn btn-primary{
+    margin-top:10px;
 }

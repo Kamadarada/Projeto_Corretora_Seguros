@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Projeto_SolCar.Entidades;
 
 namespace Projeto_SolCar.Controllers
@@ -16,7 +17,7 @@ namespace Projeto_SolCar.Controllers
             db = contexto;
         }
 
-        public ActionResult Index()
+        public ActionResult Consulta()
         {
             return View( db.CLIENTES.ToList());
         }
@@ -28,7 +29,7 @@ namespace Projeto_SolCar.Controllers
         }
 
         // GET: ClientesController/Create
-        public ActionResult Create()
+        public ActionResult Cadastrar()
         {
             return View();
         }
@@ -53,16 +54,18 @@ namespace Projeto_SolCar.Controllers
         // GET: ClientesController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(db.CLIENTES.Where(a=> a.Id == id).FirstOrDefault());
         }
 
         // POST: ClientesController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, Clientes collection)
         {
             try
             {
+                db.CLIENTES.Update(collection);
+                db.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -74,7 +77,9 @@ namespace Projeto_SolCar.Controllers
         // GET: ClientesController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            db.CLIENTES.Remove(db.CLIENTES.Where(a => a.Id == id).FirstOrDefault());
+            db.SaveChanges();
+            return RedirectToAction("Cadastrar");
         }
 
         // POST: ClientesController/Delete/5
