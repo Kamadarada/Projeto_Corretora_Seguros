@@ -1,7 +1,11 @@
+using Microsoft.EntityFrameworkCore;
+using Projeto_SolCar;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<Contexto>(opt => opt.UseSqlServer("Server=DESKTOP-D1SC2NC\\SQLEXPRESS;Database=Projeto_SolCar;Trusted_Connection=True;"));
 
 var app = builder.Build();
 
