@@ -11,7 +11,7 @@ using Projeto_SolCar;
 namespace Projeto_SolCar.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20230501043822_MigracaoClientes")]
+    [Migration("20230502002431_MigracaoClientes")]
     partial class MigracaoClientes
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -63,7 +63,7 @@ namespace Projeto_SolCar.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("NomeCompleto")
+                    b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

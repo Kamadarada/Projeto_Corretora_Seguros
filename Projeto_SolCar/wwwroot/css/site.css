@@ -19,7 +19,7 @@ body {
 }
 
 h1{
-    text-align:center;
+    text-align: center;
     padding:5px;
 }
 
@@ -28,5 +28,5 @@ h2{
 }
 
 .btn btn-primary{
-    margin-top:10px;
+    margin:10px 10px;
 }

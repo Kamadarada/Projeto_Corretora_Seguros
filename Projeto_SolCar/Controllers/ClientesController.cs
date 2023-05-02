@@ -19,13 +19,13 @@ namespace Projeto_SolCar.Controllers
 
         public ActionResult Consulta()
         {
-            return View( db.CLIENTES.ToList());
+            return View(db.CLIENTES.ToList());
         }
 
         // GET: ClientesController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return View(db.CLIENTES.Where(a => a.Id == id).FirstOrDefault());
         }
 
         // GET: ClientesController/Create
@@ -37,19 +37,23 @@ namespace Projeto_SolCar.Controllers
         // POST: ClientesController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Clientes collection)
+        public ActionResult Cadastrar(Clientes collection)
         {
             try
             {
                 db.CLIENTES.Add(collection);
                 db.SaveChanges();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Consulta));
             }
             catch
             {
                 return View();
             }
         }
+
+
+
+
 
         // GET: ClientesController/Edit/5
         public ActionResult Edit(int id)
@@ -66,7 +70,7 @@ namespace Projeto_SolCar.Controllers
             {
                 db.CLIENTES.Update(collection);
                 db.SaveChanges();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Consulta));
             }
             catch
             {
@@ -79,7 +83,7 @@ namespace Projeto_SolCar.Controllers
         {
             db.CLIENTES.Remove(db.CLIENTES.Where(a => a.Id == id).FirstOrDefault());
             db.SaveChanges();
-            return RedirectToAction("Cadastrar");
+            return RedirectToAction("Consulta");
         }
 
         // POST: ClientesController/Delete/5
@@ -89,7 +93,7 @@ namespace Projeto_SolCar.Controllers
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Consulta));
             }
             catch
             {

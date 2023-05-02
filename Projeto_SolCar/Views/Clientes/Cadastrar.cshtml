@@ -36,7 +36,7 @@
             </div>
             <div class="col-md-4">
                 <label asp-for="Sexo" class="form-label"></label>
-                <select asp-for="Sexo" class="form-select" aria-label="Selecione o seu sexo"> <option selected=""></option> <option value="_M">Masculino</option> <option value="_F">Feminino</option> <option value="_PnD">Prefiro não dizer</option> </select>
+                <select asp-for="Sexo" class="form-select" aria-label="Selecione o seu sexo"> <option selected=""></option> <option value="Masculino">Masculino</option> <option value="Feminino">Feminino</option> <option value="_PnD">Prefiro não dizer</option> </select>
                 <span asp-validation-for="Sexo" class="text-danger"></span>
             </div>
             <div class="col-md-8">
@@ -85,9 +85,11 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Consulta">Back to List</a>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
