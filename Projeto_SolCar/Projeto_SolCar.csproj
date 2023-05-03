@@ -7,6 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\Imagens\C1.jpg" />
+    <None Include="wwwroot\Imagens\C10.jpg" />
+    <None Include="wwwroot\Imagens\C2.jpg" />
+    <None Include="wwwroot\Imagens\C3.jpg" />
+    <None Include="wwwroot\Imagens\C4.jpg" />
+    <None Include="wwwroot\Imagens\C5.jpg" />
+    <None Include="wwwroot\Imagens\C6.jpg" />
+    <None Include="wwwroot\Imagens\C7.jpg" />
+    <None Include="wwwroot\Imagens\C8.jpg" />
+    <None Include="wwwroot\Imagens\C9.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.16" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.16" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.16">

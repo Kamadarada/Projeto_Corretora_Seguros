@@ -4,12 +4,12 @@
     ViewData["Title"] = "Cadastrar";
 }
 
-<h2>Cadastrar</h2>
+<h2 style="text-align:center; margin-top:25px;">Cadastrar cliente</h2>
 
 
 <hr />
 
-<h2>Informações pessoais</h2>
+<h4 style="margin-bottom:40px;">Informações pessoais</h4>
 <div class="row justify-content-md-centerrow">
     <div class="col-md-12">
         <form asp-action="Cadastrar" class="row g-3">
@@ -20,8 +20,9 @@
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
             <div class="col-md-6">
-                <label asp-for="Data_nasc" class="form-label"></label>
-                <input asp-for="Data_nasc" class="form-control" />
+                <label asp-for="Data_nasc" class="form-label">Data de Nascimento</label>
+                <input type="date" asp-for="Data_nasc" class="form-control" />
+
                 <span asp-validation-for="Data_nasc" class="text-danger"></span>
             </div>
             <div class="col-md-4">
@@ -50,43 +51,43 @@
                 <span asp-validation-for="Telefone" class="text-danger"></span>
             </div>
             <hr style="margin-top:40px"></hr>
-            <H2>Informações de Endereço</H2>
+            <h4 style="margin-bottom:40px;">Informações de Endereço</h4>
 
             <div class="col-md-6">
-                <label asp-for="Endereco" class="form-label"></label>
-                <input asp-for="Endereco" class="form-control" />
-                <span asp-validation-for="Endereco" class="text-danger"></span>
+                <label asp-for="CEP" class="form-label"></label>
+                <input id="inputCEP" asp-for="CEP" class="form-control" />
+                <span asp-validation-for="CEP" class="text-danger"></span>
             </div>
             <div class="col-md-6">
+                <label asp-for="Endereco" class="form-label">Endereço</label>
+                <input id="inputRua" asp-for="Endereco" class="form-control" />
+                <span asp-validation-for="Endereco" class="text-danger"></span>
+            </div>
+            
+            
+            <div class="col-md-4">
                 <label asp-for="Bairro" class="form-label"></label>
-                <input asp-for="Bairro" class="form-control" />
+                <input id="inputBairro" asp-for="Bairro" class="form-control" />
                 <span asp-validation-for="Bairro" class="text-danger"></span>
             </div>
             <div class="col-md-4">
-                <label asp-for="CEP" class="form-label"></label>
-                <input asp-for="CEP" class="form-control" />
-                <span asp-validation-for="CEP" class="text-danger"></span>
-            </div>
-            <div class="col-md-4">
-                <label asp-for="Cidade" class="form-label"></label>
-                <input asp-for="Cidade" class="form-control" />
+                <label  asp-for="Cidade" class="form-label"></label>
+                <input id="inputCidade" asp-for="Cidade" class="form-control" />
                 <span asp-validation-for="Cidade" class="text-danger"></span>
             </div>
             <div class="col-md-4">
                 <label asp-for="Estado" class="form-label"></label>
-                <input asp-for="Estado" class="form-control" />
+                <input id="inputEstado" asp-for="Estado" class="form-control" />
                 <span asp-validation-for="Estado" class="text-danger"></span>
             </div>
             <div class="d-grid gap-2">
-                <input type="submit" value="Cadastrar informações" class="btn btn-primary" />
+                <input style="margin-top:65px;" type="submit" value="Cadastrar informações" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Consulta">Back to List</a>
-</div>
+
 
 @section Scripts {
     @{
