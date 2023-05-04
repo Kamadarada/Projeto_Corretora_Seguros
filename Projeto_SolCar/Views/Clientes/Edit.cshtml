@@ -13,12 +13,12 @@
         <form asp-action="Edit" class="row g-3">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="col-md-6">
-                <label asp-for="Nome" class="form-label"></label>
+                <label asp-for="Nome" class="form-label">Nome completo</label>
                 <input asp-for="Nome" class="form-control" />
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
             <div class="col-md-6">
-                <label asp-for="Data_nasc" class="form-label"></label>
+                <label asp-for="Data_nasc" class="form-label">Data de nascimento</label>
                 <input asp-for="Data_nasc" class="form-control" />
                 <span asp-validation-for="Data_nasc" class="text-danger"></span>
             </div>
@@ -76,7 +76,8 @@
                 <span asp-validation-for="Estado" class="text-danger"></span>
             </div>
             <div class="d-grid gap-2">
-                <input type="submit" value="Salvar atualização" class="btn btn-primary" />
+                <input type="submit" value="Salvar atualização" style="margin-top:65px;background-color: #e86d27; border:none; height:35px; color:white"; />
+
             </div>
         </form>
     </div>

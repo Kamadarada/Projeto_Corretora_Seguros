@@ -4,85 +4,117 @@
     ViewData["Title"] = "Details";
 }
 
-<div>
-    <h1 style="text-align:center; margin:50px 10px;">Consulta de cliente</h1>
-    <a style="margin-bottom:50px" class="btn btn-secondary" asp-action="Consulta">Voltar para consulta</a>
-    
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Data_nasc)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Data_nasc)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CPF)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CPF)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RG)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RG)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Sexo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Sexo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Telefone)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Telefone)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Endereco)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Endereco)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Bairro)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Bairro)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CEP)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CEP)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Cidade)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Cidade)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Estado)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Estado)
-        </dd>
-    </dl>
-</div>
+
+<style>
+    .btn {
+        float: left;
+    }
+
+    .cinza {
+        color: #888888
+    }
+
+    h6 {
+        color: #888888;
+        display: inline-block;
+        width: 30%;
+    }
+
+    h5 {
+        color: #555555;
+        display: inline-block;
+        width: 30%;
+    }
+
+    .MesmaLinha {
+        display: flex;
+    }
+
+    ul {
+        padding-top: 25px;
+        padding-bottom: 25px;
+        padding-left: 50px;
+        display: grid;
+    }
+
+    hr {
+        size: 2px;
+        align: center;
+        width: 93%;
+    }
+
+    #Des {
+        width: 100%;
+        text-align: center;
+    }
+</style>
+
+
+<h1>Consulta</h1>
+
+<a style="margin-top:85px;background-color: #e86d27;border-radius:5px; border:none; height:35px; color:white; padding:10px; text-decoration:none"
+   asp-action="Consulta">Voltar à lista</a>
+
+<br>
+<ul>
+    <h4 id="NP" style="align-self:center; margin-top:25px;">@Model.Nome</h4>
+    <br>
+    <div class="MesmaLinha">
+        <h6 id="DdN">Data de Nascimento:@Model.Data_nasc</h6>
+        <h6 id="S">Sexo: Gênero</h6>
+    </div>
+    <div class="MesmaLinha">
+        <h6 id="CPF">CPF:@Model.CPF</h6>
+        <h6 id="RG">RG: @Model.RG</h6>
+    </div>
+    <div class="MesmaLinha">
+        <h6 id="E">Email: @Model.Email</h6>
+        <h6 id="T">Telefone: @Model.Telefone</h6>
+    </div>
+    <br>
+    <div class="MesmaLinha">
+        <h6 id="End">Endereço: @Model.Endereco</h6>
+        <h6 id="Ba">Bairro: @Model.Bairro</h6>
+    </div>
+    <div class="MesmaLinha">
+        <h6 id="Cid">Cidade: @Model.Cidade</h6>
+        <h6 id="CEP">CEP: @Model.CEP</h6>
+        <h6 id="Est">Estado: @Model.Estado</h6>
+    </div>
+</ul>
+<hr>
+<ul>
+    <h4 id="P" style="align-self:center">Plano</h4>
+    <br>
+    <div class="MesmaLinha">
+        <h6 id="S_D">Seguro domiciliar: Plano</h6>
+        <h6 id="SD_DC">Data do contrato: 00/00/0000</h6>
+        <h6 id="SD_E">Expira em: 00/00/0000</h6>
+    </div>
+    <div class="MesmaLinha">
+        <h6 id="S_A">Seguro de automóveis: Plano</h6>
+        <h6 id="SA_DC">Data do contrato: 00/00/0000</h6>
+        <h6 id="SA_E">Expira em: 00/00/0000</h6>
+    </div>
+    <br>
+    <div class="MesmaLinha" style="padding-top: 25px;padding-bottom: 25px;">
+        <h5 id="Obs">Observação:</h5>
+    </div>
+    <div id="OBS" class="MesmaLinha">
+        <textarea id="OBS_Texto" placeholder="Nenhuma observação" class="form-control"
+                  style="width:89%; height: 100px;"></textarea>
+    </div>
+</ul>
+<hr>
+<ul>
+    <button id="Des" type="submit" class="btn-primary btn"
+            style="align: center !important;width: 89%;color: #ffffff; margin-top:5px; background-color: #e86d27 !important; outline:none !important; border: none !important;">
+        Desativar
+        cadastro
+    </button>
+</ul>
+
+
 <div>
     <a asp-action="Edit" class="btn btn-success" asp-route-id="@Model?.Id">Edit</a> 
     

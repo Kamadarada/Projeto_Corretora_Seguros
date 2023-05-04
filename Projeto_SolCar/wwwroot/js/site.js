@@ -11,7 +11,7 @@ const inputBairro = document.getElementById('inputBairro')
 const inputEstado = document.getElementById('inputEstado')
 
 
-inputCEP.addEventListener('input', (e) => {
+inputCEP.addEventListener('change', (e) => {
     CEP = e.target.value
     console.log(CEP)
 

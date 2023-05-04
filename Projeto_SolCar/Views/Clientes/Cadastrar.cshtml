@@ -14,12 +14,12 @@
     <div class="col-md-12">
         <form asp-action="Cadastrar" class="row g-3">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="col-md-6">
+            <div class="col-md-7">
                 <label asp-for="Nome" class="form-label"></label>
                 <input asp-for="Nome" class="form-control" />
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <label asp-for="Data_nasc" class="form-label">Data de Nascimento</label>
                 <input type="date" asp-for="Data_nasc" class="form-control" />
 
@@ -81,7 +81,7 @@
                 <span asp-validation-for="Estado" class="text-danger"></span>
             </div>
             <div class="d-grid gap-2">
-                <input style="margin-top:65px;" type="submit" value="Cadastrar informações" class="btn btn-primary" />
+                <input style="margin-top:65px;background-color: #e86d27; border:none; height:35px; color:white" type="submit" value="Cadastrar informações" />
             </div>
         </form>
     </div>
