@@ -10,5 +10,11 @@ namespace Projeto_SolCar
         public Contexto(DbContextOptions<Contexto> opt) : base(opt) { }
 
         public DbSet<Clientes> CLIENTES { get; set; }
-    }
+
+        public DbSet<SeguroCarro> SeguroCarro { get; set; }
+
+        public DbSet<SeguroCasa> SeguroCasa { get; set; }
+
+        public DbSet<Planos> Planos { get; set; }
+    } 
 }

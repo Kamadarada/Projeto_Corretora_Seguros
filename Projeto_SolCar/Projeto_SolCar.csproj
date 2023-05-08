@@ -17,6 +17,7 @@
     <None Include="wwwroot\Imagens\C7.jpg" />
     <None Include="wwwroot\Imagens\C8.jpg" />
     <None Include="wwwroot\Imagens\C9.jpg" />
+    <None Include="wwwroot\lib\Sol_Logo%28L%29.png" />
   </ItemGroup>
 
   <ItemGroup>

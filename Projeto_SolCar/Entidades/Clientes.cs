@@ -28,7 +28,7 @@
             
         public string Estado { get; set; } = string.Empty;
 
-    
+        public ICollection<Planos> Planos{ get; set; }    
     }
 
     

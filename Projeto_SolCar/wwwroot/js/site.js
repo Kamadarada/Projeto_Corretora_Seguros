@@ -28,7 +28,7 @@ inputCEP.addEventListener('change', (e) => {
 });
 
 
-async function BuscaCep(CEP){
+async function BuscaCep(CEP) {
 
     const APIfetch = await fetch(`https://brasilapi.com.br/api/cep/v1/${CEP}`)
     const API = await APIfetch.json()
@@ -38,8 +38,7 @@ async function BuscaCep(CEP){
     inputCidade.value = API.city;
     inputBairro.value = API.neighborhood;
     inputEstado.value = API.state;
+
 }
-
-
 
 
