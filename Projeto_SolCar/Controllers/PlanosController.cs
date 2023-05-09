@@ -12,30 +12,30 @@ namespace Projeto_SolCar.Controllers
 {
     public class PlanosController : Controller
     {
-        private readonly Contexto _context;
+        private readonly Contexto db;
 
         public PlanosController(Contexto context)
         {
-            _context = context;
+            db = context;
         }
 
         // GET: Planos
         public async Task<IActionResult> Index()
         {
-              return _context.Planos != null ? 
-                          View(await _context.Planos.ToListAsync()) :
+              return db.Planos != null ? 
+                          View(await db.Planos.ToListAsync()) :
                           Problem("Entity set 'Contexto.Planos'  is null.");
         }
 
         // GET: Planos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Planos == null)
+            if (id == null || db.Planos == null)
             {
                 return NotFound();
             }
 
-            var planos = await _context.Planos
+            var planos = await db.Planos
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (planos == null)
             {
@@ -46,7 +46,12 @@ namespace Projeto_SolCar.Controllers
         }
 
         // GET: Planos/Create
-        public IActionResult Create()
+        public IActionResult CadastroSeguroCasa()
+        {
+            return View();
+        }
+
+        public IActionResult CadastroSeguroCarro()
         {
             return View();
         }
@@ -56,26 +61,41 @@ namespace Projeto_SolCar.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Observacao")] Planos planos)
+        public async Task<IActionResult> CadastroSeguroCasa([Bind("Id,Observacao")] Planos planos)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(planos);
-                await _context.SaveChangesAsync();
+                db.Add(planos);
+                await db.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(planos);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CadastroSeguroCarro([Bind("Id,Observacao")] Planos planos)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Add(planos);
+                await db.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(planos);
+        }
+
+
+
         // GET: Planos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Planos == null)
+            if (id == null || db.Planos == null)
             {
                 return NotFound();
             }
 
-            var planos = await _context.Planos.FindAsync(id);
+            var planos = await db.Planos.FindAsync(id);
             if (planos == null)
             {
                 return NotFound();
@@ -99,8 +119,8 @@ namespace Projeto_SolCar.Controllers
             {
                 try
                 {
-                    _context.Update(planos);
-                    await _context.SaveChangesAsync();
+                    db.Update(planos);
+                    await db.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -121,12 +141,12 @@ namespace Projeto_SolCar.Controllers
         // GET: Planos/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Planos == null)
+            if (id == null || db.Planos == null)
             {
                 return NotFound();
             }
 
-            var planos = await _context.Planos
+            var planos = await db.Planos
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (planos == null)
             {
@@ -141,23 +161,23 @@ namespace Projeto_SolCar.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Planos == null)
+            if (db.Planos == null)
             {
                 return Problem("Entity set 'Contexto.Planos'  is null.");
             }
-            var planos = await _context.Planos.FindAsync(id);
+            var planos = await db.Planos.FindAsync(id);
             if (planos != null)
             {
-                _context.Planos.Remove(planos);
+                db.Planos.Remove(planos);
             }
             
-            await _context.SaveChangesAsync();
+            await db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool PlanosExists(int id)
         {
-          return (_context.Planos?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (db.Planos?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
