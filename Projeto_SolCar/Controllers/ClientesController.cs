@@ -18,6 +18,13 @@ namespace Projeto_SolCar.Controllers
             db = contexto;
         }
 
+        public ActionResult SelecionarPlano(int id)
+        {
+            return View(db.CLIENTES.Where(a => a.Id == id).FirstOrDefault());
+        }
+
+        
+
         public ActionResult Consulta()
         {
             return View(db.CLIENTES.ToList());
@@ -44,7 +51,7 @@ namespace Projeto_SolCar.Controllers
             {
                 db.CLIENTES.Add(collection);
                 db.SaveChanges();
-                return RedirectToAction(nameof(Consulta));
+                return RedirectToAction("SelecionarPlano", "Clientes", new { id = collection.Id } );
             }
             catch
             {

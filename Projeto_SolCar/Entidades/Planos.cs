@@ -64,7 +64,6 @@ namespace Projeto_SolCar.Entidades
 
         public string? Desmoronamento { get; set; }
 
-        
 
     }
 

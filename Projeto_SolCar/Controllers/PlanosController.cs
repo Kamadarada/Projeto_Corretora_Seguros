@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Projeto_SolCar;
 using Projeto_SolCar.Entidades;
+using Projeto_SolCar.Models;
 
 namespace Projeto_SolCar.Controllers
 {
@@ -22,9 +23,9 @@ namespace Projeto_SolCar.Controllers
         // GET: Planos
         public async Task<IActionResult> Index()
         {
-              return db.Planos != null ? 
-                          View(await db.Planos.ToListAsync()) :
-                          Problem("Entity set 'Contexto.Planos'  is null.");
+            return db.Planos != null ?
+                        View(await db.Planos.ToListAsync()) :
+                        Problem("Entity set 'Contexto.Planos'  is null.");
         }
 
         // GET: Planos/Details/5
@@ -61,15 +62,39 @@ namespace Projeto_SolCar.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CadastroSeguroCasa([Bind("Id,Observacao")] Planos planos)
+        public IActionResult CadastroSeguroCasa(CadastroCasaInsert data)
         {
-            if (ModelState.IsValid)
+
+            Clientes cliente = db.CLIENTES.Where(a => a.Id == data.ClienteId).FirstOrDefault();
+
+            if(cliente == null)
             {
-                db.Add(planos);
-                await db.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return BadRequest();
             }
-            return View(planos);
+
+            SeguroCasa seguroCasa = new SeguroCasa
+            {
+                TipoResedência = data.TipoResedência,
+                TipoCobertura = data.TipoCobertura,
+                Basica = data.Basica,
+                DanosMorais = data.DanosMorais,
+                DanosEletricos = data.DanosEletricos,
+                Equipamentos = data.Equipamentos,
+                Aluguel = data.Aluguel,
+                Vidros = data.Vidros,
+                Roubo = data.Roubo,
+                Vendaval = data.Vendaval,
+                Alagamentos = data.Alagamentos,
+                Impacto = data.Impacto,
+                Desmoronamento = data.Desmoronamento,
+                Observacao = data.Observacao
+
+            };
+
+            cliente?.Planos?.Add(seguroCasa);
+
+            db.SaveChanges();
+            return RedirectToAction("Consulta", "Clientes");
         }
 
         [HttpPost]
@@ -84,6 +109,7 @@ namespace Projeto_SolCar.Controllers
             }
             return View(planos);
         }
+
 
 
 
@@ -170,14 +196,14 @@ namespace Projeto_SolCar.Controllers
             {
                 db.Planos.Remove(planos);
             }
-            
+
             await db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool PlanosExists(int id)
         {
-          return (db.Planos?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (db.Planos?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

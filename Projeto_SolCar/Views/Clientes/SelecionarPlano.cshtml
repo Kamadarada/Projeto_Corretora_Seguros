@@ -1,0 +1,284 @@
+﻿@model Projeto_SolCar.Entidades.Clientes
+
+@{
+    ViewData["Title"] = "SelecionarPlano";
+}
+
+<h2 style="text-align:center; margin-top:25px;">Cadastrar Plano</h2>
+
+
+<hr />
+
+
+
+
+<style>
+    .btn {
+        float: left;
+    }
+
+    .cinza {
+        color: #888888
+    }
+
+    h6 {
+        color: #888888;
+        display: inline-block;
+        width: 30%;
+    }
+
+    h5 {
+        color: #555555;
+        display: inline-block;
+        width: 30%;
+    }
+
+    .MesmaLinha {
+        display: flex;
+        
+    }
+
+    ul {
+        padding-top: 25px;
+        padding-bottom: 25px;
+        padding-left: 50px;
+        display: grid;
+    }
+
+    hr {
+        size: 2px;
+        align: center;
+        width: 93%;
+    }
+
+    #Des {
+        width: 100%;
+        text-align: center;
+    }
+</style>
+
+
+
+<a style="margin-top:85px;background-color: #e86d27;border-radius:5px; border:none; height:35px; color:white; padding:10px; text-decoration:none"
+   asp-action="Consulta">Voltar à lista</a>
+
+<br>
+<ul>
+    <h4 id="NP" style="align-self:center; margin-top:25px;"> @Model.Nome</h4>
+    <br>
+    <div class="MesmaLinha">
+        <h6 id="DdN">Data de Nascimento: @Model.Data_nasc</h6>
+        <h6 id="S">Sexo: @Model.Sexo</h6>
+    </div>
+    <div class="MesmaLinha">
+        <h6 id="CPF">CPF: @Model.CPF</h6>
+        <h6 id="RG">RG: @Model.RG</h6>
+    </div>
+    <div class="MesmaLinha">
+        <h6 id="E">Email: @Model.Email</h6>
+        <h6 id="T">Telefone: @Model.Telefone</h6>
+    </div>
+    <br>
+    <div class="MesmaLinha">
+        <h6 id="End">Endereço: @Model.Endereco</h6>
+        <h6 id="Ba">Bairro: @Model.Bairro</h6>
+    </div>
+    <div class="MesmaLinha">
+        <h6 id="Cid">Cidade: @Model.Cidade</h6>
+        <h6 id="CEP">CEP: @Model.CEP</h6>
+        <h6 id="Est">Estado: @Model.Estado</h6>
+    </div>
+</ul>
+<hr/>
+<div style="padding-bottom:20px ; width:24%" class="col-md-3">
+    <label>Selecionar Plano</label>
+    <select asp-for="Sexo" class="form-select" aria-label="Selecione o seguro"> 
+            <option selected=""></option> <option value="SeguroCasa">SeguroCasa</option> 
+            <option value="SeguroCarro">Seguro de Carro</option> 
+            
+    </select>
+
+</div>
+
+
+
+
+<div class="row justify-content-md-centerrow">
+    <div class="col-md-12">
+        <form method="post" asp-controller="Planos" asp-action="CadastroSeguroCasa" class="row g-3">
+            <input type="hidden" name="ClienteId" value="@Model.Id"/>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="col-md-3">
+                <label name="TipoResedência" class="form-label">Tipo de Residência</label>
+                <input name="TipoResedência" class="form-control" />
+                <span  name="TipoResedência" class="text-danger"></span>
+            </div>
+            <div class="col-md-3">
+                <label name="TipoCobertura" class="form-label">Tipo de cobertura</label>
+                <input name="TipoCobertura" class="form-control" />
+
+                <span name="TipoCobertura" class="text-danger"></span>
+            </div>
+            <div class="col-md-3">
+                <label name="Basica" class="form-label">Básica</label>
+                <input name="Basica" class="form-control" />
+                <span name="Basica" class="text-danger"></span>
+            </div>
+            <div class="col-md-3">
+                <label name="DanosMorais" class="form-label">Danos morais</label>
+                <input name="DanosMorais" class="form-control" />                
+                <span name="DanosMorais" class="text-danger"></span>
+            </div>
+            <div class="col-md-3">
+                <label name="DanosEletricos" class="form-label">Danos elétricos</label>
+                <input name="DanosEletricos" class="form-control" />
+                <span name="DanosEletricos" class="text-danger"></span>
+            </div>
+            <div class="col-md-3">
+                <label name="Equipamentos" class="form-label">Equipamentos</label>
+                <input name="Equipamentos" class="form-control" />
+                <span name="Equipamentos" class="text-danger"></span>
+            </div>
+            <hr style="margin-top:40px"></hr>
+
+            <div class="col-md-3">
+                <label name="Aluguel" class="form-label">Aluguel</label>
+                <input name="Aluguel" class="form-control" />
+                <span name="Aluguel" class="text-danger"></span>
+            </div>
+            <div class="col-md-3">
+                <label name="Vidros" class="form-label">Vidros</label>
+                <input name="Vidros" class="form-control" />
+                <span name="Vidros" class="text-danger"></span>
+            </div>
+
+
+            <div class="col-md-3">
+                <label name="Roubo" class="form-label">Roubo/Furto</label>
+                <input name="Roubo" class="form-control" />
+                <span name="Roubo" class="text-danger"></span>
+            </div>
+            <div class="col-md-3">
+                <label name="Vendaval" class="form-label">Vendaval</label>
+                <input name="Vendaval" class="form-control" />
+                <span name="Vendaval" class="text-danger"></span>
+            </div>
+            <div class="col-md-3">
+                <label name="Alagamentos" class="form-label">Alagamentos</label>
+                <input name="Alagamentos" class="form-control" />
+                <span name="Alagamentos" class="text-danger"></span>
+            </div>
+            <div class="col-md-3">
+                <label name="Impacto" class="form-label">Impacto</label>
+                <input name="Impacto" class="form-control" />
+                <span name="Impacto" class="text-danger"></span>
+            </div>
+            <div class="col-md-3">
+                <label name="Desmoronamento" class="form-label">Desmoronamento</label>
+                <input name="Desmoronamento" class="form-control" />
+                <span name="Desmoronamento" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-3">
+                <label name="Observacao" class="form-label">Observação</label>
+                <input name="Observacao" class="form-control" />
+                <span name="Observacao" class="text-danger"></span>
+            </div>
+
+
+            <div class="d-grid gap-2">
+                <input style="margin-top:65px;background-color: #e86d27; border-radius:5px;border:none; height:35px; color:white" type="submit" value="Cadastrar informações" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-------------------------------------------------
+
+
+
+<div class="row justify-content-md-centerrow">
+    <div class="col-md-12">
+        <form asp-action="CadastroSeguroCarro" class="row g-3">
+            <input type="hidden" name="ClienteId" value="@Model.Id" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="col-md-3">
+                <label asp-for="Nome" class="form-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="col-md-3">
+                <label asp-for="Data_nasc" class="form-label">Data de Nascimento</label>
+                <input type="date" asp-for="Data_nasc" class="form-control" />
+
+                <span asp-validation-for="Data_nasc" class="text-danger"></span>
+            </div>
+            <div class="col-md-3">
+                <label asp-for="CPF" class="form-label"></label>
+                <input asp-for="CPF" class="form-control" />
+                <span asp-validation-for="CPF" class="text-danger"></span>
+            </div>
+            <div class="col-md-3">
+                <label asp-for="RG" class="form-label"></label>
+                <input asp-for="RG" class="form-control" />
+                <span asp-validation-for="RG" class="text-danger"></span>
+            </div>
+            <div class="col-md-3">
+                <label asp-for="Sexo" class="form-label"></label>
+                <select asp-for="Sexo" class="form-select" aria-label="Selecione o seu sexo"> <option selected=""></option> <option value="Masculino">Masculino</option> <option value="Feminino">Feminino</option> <option value="_PnD">Prefiro não dizer</option> </select>
+                <span asp-validation-for="Sexo" class="text-danger"></span>
+            </div>
+            <div class="col-md-3">
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="col-md-3">
+                <label asp-for="Telefone" class="form-label"></label>
+                <input asp-for="Telefone" class="form-control" />
+                <span asp-validation-for="Telefone" class="text-danger"></span>
+            </div>
+            <hr style="margin-top:40px"></hr>
+            <h4 style="margin-bottom:40px;">Informações de Endereço</h4>
+
+            <div class="col-md-3">
+                <label asp-for="CEP" class="form-label"></label>
+                <input id="inputCEP" asp-for="CEP" class="form-control" />
+                <span asp-validation-for="CEP" class="text-danger"></span>
+            </div>
+            <div class="col-md-3">
+                <label asp-for="Endereco" class="form-label">Endereço</label>
+                <input id="inputRua" asp-for="Endereco" class="form-control" />
+                <span asp-validation-for="Endereco" class="text-danger"></span>
+            </div>
+
+
+            <div class="col-md-3">
+                <label asp-for="Bairro" class="form-label"></label>
+                <input id="inputBairro" asp-for="Bairro" class="form-control" />
+                <span asp-validation-for="Bairro" class="text-danger"></span>
+            </div>
+            <div class="col-md-3">
+                <label asp-for="Cidade" class="form-label"></label>
+                <input id="inputCidade" asp-for="Cidade" class="form-control" />
+                <span asp-validation-for="Cidade" class="text-danger"></span>
+            </div>
+            <div class="col-md-3">
+                <label asp-for="Estado" class="form-label"></label>
+                <input id="inputEstado" asp-for="Estado" class="form-control" />
+                <span asp-validation-for="Estado" class="text-danger"></span>
+            </div>
+            <div class="d-grid gap-2">
+                <input style="margin-top:65px;background-color: #e86d27; border-radius:5px;border:none; height:35px; color:white" type="submit" value="Cadastrar informações" />
+            </div>
+        </form>
+    </div>
+</div>
+
+---------------------------------------------------------------------------------------------------------------->
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
