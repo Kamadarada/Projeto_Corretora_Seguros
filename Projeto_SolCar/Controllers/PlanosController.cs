@@ -91,8 +91,9 @@ namespace Projeto_SolCar.Controllers
 
             };
 
-           
-            db.Planos.Add(seguroCasa);
+            //cliente?.Planos?.Add(seguroCasa); Recebe cliente.Id como NULL e não salva no banco de dados
+
+            db.Planos.Add(seguroCasa); // Este está funcionando, porém não recebe os clientes.Id. Está passando como NULL
 
             db.SaveChanges();
             return RedirectToAction("Consulta", "Clientes");
