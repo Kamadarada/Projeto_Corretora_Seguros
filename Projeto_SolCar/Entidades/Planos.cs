@@ -25,7 +25,7 @@ namespace Projeto_SolCar.Entidades
 
         public string? Quilometragem { get; set; }
 
-        public string? FIPE { get; }        
+        public string? FIPE { get; set; }        
 
         public string? TipoCobertura { get; set; }
 

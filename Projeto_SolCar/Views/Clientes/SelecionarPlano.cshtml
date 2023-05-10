@@ -34,17 +34,21 @@
     }
 
     .MesmaLinha {
-        display: flex;
-        
+        margin-right:500px;
+        width:100%;
+        display:flex;
     }
 
-    ul {
+ 
+
+    .CaixaCliente {
         padding-top: 25px;
         padding-bottom: 25px;
-        padding-left: 50px;
         display: grid;
+       
     }
 
+    
     hr {
         size: 2px;
         align: center;
@@ -63,32 +67,35 @@
    asp-action="Consulta">Voltar à lista</a>
 
 <br>
-<ul>
-    <h4 id="NP" style="align-self:center; margin-top:25px;"> @Model.Nome</h4>
-    <br>
-    <div class="MesmaLinha">
-        <h6 id="DdN">Data de Nascimento: @Model.Data_nasc</h6>
-        <h6 id="S">Sexo: @Model.Sexo</h6>
-    </div>
-    <div class="MesmaLinha">
-        <h6 id="CPF">CPF: @Model.CPF</h6>
-        <h6 id="RG">RG: @Model.RG</h6>
-    </div>
-    <div class="MesmaLinha">
-        <h6 id="E">Email: @Model.Email</h6>
-        <h6 id="T">Telefone: @Model.Telefone</h6>
-    </div>
-    <br>
-    <div class="MesmaLinha">
-        <h6 id="End">Endereço: @Model.Endereco</h6>
-        <h6 id="Ba">Bairro: @Model.Bairro</h6>
-    </div>
-    <div class="MesmaLinha">
-        <h6 id="Cid">Cidade: @Model.Cidade</h6>
-        <h6 id="CEP">CEP: @Model.CEP</h6>
-        <h6 id="Est">Estado: @Model.Estado</h6>
-    </div>
-</ul>
+<div class="CaixaCliente">
+    
+    
+        <h4  style="align-self:center; margin-top:25px;"> @Model.Nome</h4>
+        <br>
+        <div class="MesmaLinha">
+            <h6 >Data de Nascimento: @Model.Data_nasc</h6>
+            <h6 >Sexo: @Model.Sexo</h6>
+        </div>
+        <div class="MesmaLinha">
+            <h6 >CPF: @Model.CPF</h6>
+            <h6 >RG: @Model.RG</h6>
+        </div>
+        <div class="MesmaLinha">
+            <h6 >Email: @Model.Email</h6>
+            <h6 >Telefone: @Model.Telefone</h6>
+        </div>
+        <br>
+        <div class="MesmaLinha">
+            <h6 >Endereço: @Model.Endereco</h6>
+            <h6 >Bairro: @Model.Bairro</h6>
+        </div>
+        <div class="MesmaLinha">
+            <h6 >Cidade: @Model.Cidade</h6>
+            <h6>CEP: @Model.CEP</h6>
+            <h6 >Estado: @Model.Estado</h6>
+        </div>
+    
+</div>
 <hr/>
 <div style="padding-bottom:20px ; width:24%" class="col-md-3">
     <label>Selecionar Plano</label>
@@ -104,7 +111,7 @@
 
 
 <div class="row justify-content-md-centerrow">
-    <div class="col-md-12">
+    <div class="col-md">
         <form method="post" asp-controller="Planos" asp-action="CadastroSeguroCasa" class="row g-3">
             <input type="hidden" name="ClienteId" value="@Model.Id"/>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>

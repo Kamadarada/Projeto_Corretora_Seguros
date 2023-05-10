@@ -99,17 +99,42 @@ namespace Projeto_SolCar.Controllers
             return RedirectToAction("Consulta", "Clientes");
         }
 
+        // POST: Planos/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CadastroSeguroCarro([Bind("Id,Observacao")] Planos planos)
+        public IActionResult CadastroSeguroCarro(CadastroCarroInsert data)
         {
-            if (ModelState.IsValid)
+
+            Clientes cliente = db.CLIENTES.Where(a => a.Id == data.ClienteId).FirstOrDefault();
+
+            if (cliente == null)
             {
-                db.Add(planos);
-                await db.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return BadRequest();
             }
-            return View(planos);
+
+            SeguroCarro seguroCarro = new SeguroCarro
+            {
+                Chassi = data.Chassi,
+                Placa = data.Placa,
+                AnoFabricacao = data.AnoFabricacao,
+                AnoModelo = data.AnoModelo,
+                Modelo = data.Marca,
+                Quilometragem = data.Quilometragem,
+                FIPE = data.FIPE,
+                TipoCobertura = data.TipoCobertura,
+                Descricao = data.Descricao,
+                
+
+            };
+
+            //cliente?.Planos?.Add(seguroCarro); Recebe cliente.Id como NULL e não salva no banco de dados
+
+            db.Planos.Add(seguroCarro); // Este está funcionando, porém não recebe os clientes.Id. Está passando como NULL
+
+            db.SaveChanges();
+            return RedirectToAction("Consulta", "Clientes");
         }
 
 
