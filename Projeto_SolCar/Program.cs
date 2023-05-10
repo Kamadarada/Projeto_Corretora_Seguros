@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<Contexto>(opt => opt.UseSqlServer("Server=c3po;Database=Projeto_Solcar;Trusted_Connection=True;\r\n"));
+builder.Services.AddDbContext<Contexto>(opt => opt.UseSqlServer("Server=DESKTOP-D1SC2NC\\SQLEXPRESS;Database=Projeto_Solcar;Trusted_Connection=True;\r\n"));
 
 var app = builder.Build();
 

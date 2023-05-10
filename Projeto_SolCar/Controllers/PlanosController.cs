@@ -91,7 +91,8 @@ namespace Projeto_SolCar.Controllers
 
             };
 
-            cliente?.Planos?.Add(seguroCasa);
+           
+            db.Planos.Add(seguroCasa);
 
             db.SaveChanges();
             return RedirectToAction("Consulta", "Clientes");
