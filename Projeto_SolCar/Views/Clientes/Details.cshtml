@@ -63,6 +63,8 @@
     <div class="MesmaLinha">
         <h6 id="DdN">Data de Nascimento:@Model.Data_nasc</h6>
         <h6 id="S">Sexo: Gênero</h6>
+        <a style="justify-self:end; width:25%" asp-action="Edit" class="btn btn-success" asp-route-id="@Model?.Id">Atualizar Cadastro</a>
+
     </div>
     <div class="MesmaLinha">
         <h6 id="CPF">CPF:@Model.CPF</h6>
@@ -85,7 +87,7 @@
 </ul>
 <hr>
 <ul>
-    <h4 id="P" style="align-self:center">Plano</h4>
+    <h4 id="P" style="align-self:center">@Model.Planos.</h4>
     <br>
     <div class="MesmaLinha">
         <h6 id="S_D">Seguro domiciliar: Plano</h6>
@@ -108,12 +110,13 @@
 </ul>
 <hr>
 <ul>
-    <button id="Des" type="submit" class="btn-primary btn"
+    <a asp-action="Delete" asp-route-id="@Model?.Id" id="Des" type="submit" class="btn-primary btn"
             style="align: center !important;width: 89%;color: #ffffff; margin-top:5px; background-color: #e86d27 !important; outline:none !important; border: none !important;">
         Desativar
         cadastro
-    </button>
+    </a>
 </ul>
+
 
 
 <div>

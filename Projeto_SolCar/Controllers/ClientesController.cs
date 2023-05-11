@@ -13,6 +13,9 @@ namespace Projeto_SolCar.Controllers
         // GET: ClientesController
 
 
+        
+       
+
         public ClientesController (Contexto contexto)
         {
             db = contexto;
@@ -108,6 +111,11 @@ namespace Projeto_SolCar.Controllers
                 return View();
             }
         }
+
+
+        
+
+
     }
 
 }

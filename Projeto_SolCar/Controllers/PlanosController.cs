@@ -72,6 +72,7 @@ namespace Projeto_SolCar.Controllers
                 return BadRequest();
             }
 
+
             SeguroCasa seguroCasa = new SeguroCasa
             {
                 TipoResedência = data.TipoResedência,
@@ -91,6 +92,8 @@ namespace Projeto_SolCar.Controllers
                 Clientes = cliente
 
             };
+
+
 
             //db.cliente?.Planos?.Add(seguroCasa);
 
