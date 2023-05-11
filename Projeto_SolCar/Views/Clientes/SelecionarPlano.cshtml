@@ -99,8 +99,8 @@
 <hr/>
 <div style="padding-bottom:20px ; width:24%" class="col-md-3">
     <label>Selecionar Plano</label>
-    <select asp-for="Sexo" class="form-select" aria-label="Selecione o seguro"> 
-            <option selected=""></option> <option value="SeguroCasa">SeguroCasa</option> 
+    <select onchange="onChangePlanos()" id="SelecionarPlano" class="form-select" aria-label="Selecione o seguro"> 
+            <option selected value="SeguroCasa">Seguro de Casa</option> 
             <option value="SeguroCarro">Seguro de Carro</option> 
             
     </select>
@@ -112,7 +112,7 @@
 
 <div class="row justify-content-md-centerrow">
     <div class="col-md">
-        <form method="post" asp-controller="Planos" asp-action="CadastroSeguroCasa" class="row g-3">
+        <form id="formSeguroCasa" method="post" asp-controller="Planos" asp-action="CadastroSeguroCasa" class="row g-3">
             <input type="hidden" name="ClienteId" value="@Model.Id"/>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="col-md-3">
@@ -200,81 +200,77 @@
     </div>
 </div>
 
-<!-------------------------------------------------
 
+<!--Formulário plano de carro-->
 
 
 <div class="row justify-content-md-centerrow">
     <div class="col-md-12">
-        <form asp-action="CadastroSeguroCarro" class="row g-3">
+        <form  id="formSeguroCarro" method="post" asp-controller="Planos" asp-action="CadastroSeguroCarro" class="row g-3 d-none">
             <input type="hidden" name="ClienteId" value="@Model.Id" />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="col-md-3">
-                <label asp-for="Nome" class="form-label"></label>
-                <input asp-for="Nome" class="form-control" />
-                <span asp-validation-for="Nome" class="text-danger"></span>
+                <label name="Chassi" class="form-label">Chassi</label>
+                <input name="Chassi" class="form-control" />
+                <span name="Chassi" class="text-danger"></span>
             </div>
             <div class="col-md-3">
-                <label asp-for="Data_nasc" class="form-label">Data de Nascimento</label>
-                <input type="date" asp-for="Data_nasc" class="form-control" />
+                <label name="Placa" class="form-label">Placa</label>
+                <input name="Placa" class="form-control" />
 
-                <span asp-validation-for="Data_nasc" class="text-danger"></span>
+                <span name="TipoCobertura" class="text-danger"></span>
             </div>
             <div class="col-md-3">
-                <label asp-for="CPF" class="form-label"></label>
-                <input asp-for="CPF" class="form-control" />
-                <span asp-validation-for="CPF" class="text-danger"></span>
+                <label name="AnoFabricacao" class="form-label">Ano de Fabricação</label>
+                <input name="AnoFabricacao" class="form-control" />
+                <span name="AnoFabricacao" class="text-danger"></span>
             </div>
             <div class="col-md-3">
-                <label asp-for="RG" class="form-label"></label>
-                <input asp-for="RG" class="form-control" />
-                <span asp-validation-for="RG" class="text-danger"></span>
+                <label name="AnoModelo" class="form-label">Ano do modelo</label>
+                <input name="AnoModelo" class="form-control" />
+                <span name="AnoModelo" class="text-danger"></span>
             </div>
             <div class="col-md-3">
-                <label asp-for="Sexo" class="form-label"></label>
-                <select asp-for="Sexo" class="form-select" aria-label="Selecione o seu sexo"> <option selected=""></option> <option value="Masculino">Masculino</option> <option value="Feminino">Feminino</option> <option value="_PnD">Prefiro não dizer</option> </select>
-                <span asp-validation-for="Sexo" class="text-danger"></span>
+                <label name="Modelo" class="form-label">Modelo do veículo</label>
+                <input name="Modelo" class="form-control" />
+                <span name="Modelo" class="text-danger"></span>
             </div>
+
             <div class="col-md-3">
-                <label asp-for="Email" class="form-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
+                <label name="Marca" class="form-label">Marca do veículo</label>
+                <input name="Marca" class="form-control" />
+                <span name="Marca" class="text-danger"></span>
             </div>
+
+
             <div class="col-md-3">
-                <label asp-for="Telefone" class="form-label"></label>
-                <input asp-for="Telefone" class="form-control" />
-                <span asp-validation-for="Telefone" class="text-danger"></span>
+                <label name="Quilometragem" class="form-label">Quilometragem (km rodados)</label>
+                <input name="Quilometragem" class="form-control" />
+                <span name="Quilometragem" class="text-danger"></span>
             </div>
             <hr style="margin-top:40px"></hr>
-            <h4 style="margin-bottom:40px;">Informações de Endereço</h4>
 
             <div class="col-md-3">
-                <label asp-for="CEP" class="form-label"></label>
-                <input id="inputCEP" asp-for="CEP" class="form-control" />
-                <span asp-validation-for="CEP" class="text-danger"></span>
+                <label name="FIPE" class="form-label">FIPE</label>
+                <input name="FIPE" class="form-control" />
+                <span name="FIPE" class="text-danger"></span>
             </div>
             <div class="col-md-3">
-                <label asp-for="Endereco" class="form-label">Endereço</label>
-                <input id="inputRua" asp-for="Endereco" class="form-control" />
-                <span asp-validation-for="Endereco" class="text-danger"></span>
+                <label name="TipoCobertura" class="form-label">TipoCobertura</label>
+                <input name="TipoCobertura" class="form-control" />
+                <span name="TipoCobertura" class="text-danger"></span>
             </div>
 
 
             <div class="col-md-3">
-                <label asp-for="Bairro" class="form-label"></label>
-                <input id="inputBairro" asp-for="Bairro" class="form-control" />
-                <span asp-validation-for="Bairro" class="text-danger"></span>
+                <label name="Descricao" class="form-label">Roubo/Furto</label>
+                <input name="Descricao" class="form-control" />
+                <span name="Descricao" class="text-Descricao"></span>
             </div>
-            <div class="col-md-3">
-                <label asp-for="Cidade" class="form-label"></label>
-                <input id="inputCidade" asp-for="Cidade" class="form-control" />
-                <span asp-validation-for="Cidade" class="text-danger"></span>
-            </div>
-            <div class="col-md-3">
-                <label asp-for="Estado" class="form-label"></label>
-                <input id="inputEstado" asp-for="Estado" class="form-control" />
-                <span asp-validation-for="Estado" class="text-danger"></span>
-            </div>
+           
+
+
+
             <div class="d-grid gap-2">
                 <input style="margin-top:65px;background-color: #e86d27; border-radius:5px;border:none; height:35px; color:white" type="submit" value="Cadastrar informações" />
             </div>
@@ -282,7 +278,7 @@
     </div>
 </div>
 
----------------------------------------------------------------------------------------------------------------->
+
 
 @section Scripts {
     @{

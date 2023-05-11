@@ -20,20 +20,20 @@ namespace Projeto_SolCar.Controllers
 
         public ActionResult SelecionarPlano(int id)
         {
-            return View(db.CLIENTES.Where(a => a.Id == id).FirstOrDefault());
+            return View(db.Clientes.Where(a => a.Id == id).FirstOrDefault());
         }
 
         
 
         public ActionResult Consulta()
         {
-            return View(db.CLIENTES.ToList());
+            return View(db.Clientes.ToList());
         }
 
         // GET: ClientesController/Details/5
         public ActionResult Details(int id)
         {
-            return View(db.CLIENTES.Where(a => a.Id == id).FirstOrDefault());
+            return View(db.Clientes.Where(a => a.Id == id).FirstOrDefault());
         }
 
         // GET: ClientesController/Create
@@ -49,7 +49,7 @@ namespace Projeto_SolCar.Controllers
         {
             try
             {
-                db.CLIENTES.Add(collection);
+                db.Clientes.Add(collection);
                 db.SaveChanges();
                 return RedirectToAction("SelecionarPlano", "Clientes", new { id = collection.Id } );
             }
@@ -66,7 +66,7 @@ namespace Projeto_SolCar.Controllers
         // GET: ClientesController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View(db.CLIENTES.Where(a=> a.Id == id).FirstOrDefault());
+            return View(db.Clientes.Where(a=> a.Id == id).FirstOrDefault());
         }
 
         // POST: ClientesController/Edit/5
@@ -76,7 +76,7 @@ namespace Projeto_SolCar.Controllers
         {
             try
             {
-                db.CLIENTES.Update(collection);
+                db.Clientes.Update(collection);
                 db.SaveChanges();
                 return RedirectToAction(nameof(Consulta));
             }
@@ -89,7 +89,7 @@ namespace Projeto_SolCar.Controllers
         // GET: ClientesController/Delete/5
         public ActionResult Delete(int id)
         {
-            db.CLIENTES.Remove(db.CLIENTES.Where(a => a.Id == id).FirstOrDefault());
+            db.Clientes.Remove(db.Clientes.Where(a => a.Id == id).FirstOrDefault());
             db.SaveChanges();
             return RedirectToAction("Consulta");
         }

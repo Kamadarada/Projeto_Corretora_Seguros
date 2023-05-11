@@ -5,6 +5,7 @@ namespace Projeto_SolCar.Entidades
 {
     public abstract class Planos
     {
+        public Clientes Clientes { get; set; }
         public int Id { get; set; }
         public string? Observacao { get; set; }
     }

@@ -12,8 +12,8 @@ using Projeto_SolCar;
 namespace Projeto_SolCar.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20230508190505_addPlanos")]
-    partial class addPlanos
+    [Migration("20230511010412_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -82,7 +82,7 @@ namespace Projeto_SolCar.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CLIENTES");
+                    b.ToTable("Clientes");
                 });
 
             modelBuilder.Entity("Projeto_SolCar.Entidades.Planos", b =>
@@ -126,6 +126,9 @@ namespace Projeto_SolCar.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Descricao")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FIPE")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Marca")

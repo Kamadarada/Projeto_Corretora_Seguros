@@ -65,7 +65,7 @@ namespace Projeto_SolCar.Controllers
         public IActionResult CadastroSeguroCasa(CadastroCasaInsert data)
         {
 
-            Clientes cliente = db.CLIENTES.Where(a => a.Id == data.ClienteId).FirstOrDefault();
+            Clientes cliente = db.Clientes.Where(a => a.Id == data.ClienteId).FirstOrDefault();
 
             if(cliente == null)
             {
@@ -87,11 +87,12 @@ namespace Projeto_SolCar.Controllers
                 Alagamentos = data.Alagamentos,
                 Impacto = data.Impacto,
                 Desmoronamento = data.Desmoronamento,
-                Observacao = data.Observacao
+                Observacao = data.Observacao,
+                Clientes = cliente
 
             };
 
-            //cliente?.Planos?.Add(seguroCasa); Recebe cliente.Id como NULL e não salva no banco de dados
+            //db.cliente?.Planos?.Add(seguroCasa);
 
             db.Planos.Add(seguroCasa); // Este está funcionando, porém não recebe os clientes.Id. Está passando como NULL
 
@@ -107,7 +108,7 @@ namespace Projeto_SolCar.Controllers
         public IActionResult CadastroSeguroCarro(CadastroCarroInsert data)
         {
 
-            Clientes cliente = db.CLIENTES.Where(a => a.Id == data.ClienteId).FirstOrDefault();
+            Clientes cliente = db.Clientes.Where(a => a.Id == data.ClienteId).FirstOrDefault();
 
             if (cliente == null)
             {
@@ -120,19 +121,20 @@ namespace Projeto_SolCar.Controllers
                 Placa = data.Placa,
                 AnoFabricacao = data.AnoFabricacao,
                 AnoModelo = data.AnoModelo,
-                Modelo = data.Marca,
+                Modelo = data.Modelo,
+                Marca = data.Marca,
                 Quilometragem = data.Quilometragem,
                 FIPE = data.FIPE,
                 TipoCobertura = data.TipoCobertura,
                 Descricao = data.Descricao,
-                
+                Clientes = cliente
 
             };
 
-            //cliente?.Planos?.Add(seguroCarro); Recebe cliente.Id como NULL e não salva no banco de dados
+            //cliente?.Planos?.Add(seguroCarro); 
 
-            db.Planos.Add(seguroCarro); // Este está funcionando, porém não recebe os clientes.Id. Está passando como NULL
-
+            db.Planos.Add(seguroCarro); // Gambiarra
+            
             db.SaveChanges();
             return RedirectToAction("Consulta", "Clientes");
         }

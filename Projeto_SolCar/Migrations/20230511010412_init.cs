@@ -4,10 +4,34 @@
 
 namespace Projeto_SolCar.Migrations
 {
-    public partial class addPlanos : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Clientes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nome = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Data_nasc = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CPF = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    RG = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Sexo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Telefone = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Endereco = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Bairro = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CEP = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Cidade = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Estado = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Clientes", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Planos",
                 columns: table => new
@@ -24,6 +48,7 @@ namespace Projeto_SolCar.Migrations
                     Modelo = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Marca = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Quilometragem = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FIPE = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TipoCobertura = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Descricao = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TipoResedência = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -44,9 +69,9 @@ namespace Projeto_SolCar.Migrations
                 {
                     table.PrimaryKey("PK_Planos", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Planos_CLIENTES_ClientesId",
+                        name: "FK_Planos_Clientes_ClientesId",
                         column: x => x.ClientesId,
-                        principalTable: "CLIENTES",
+                        principalTable: "Clientes",
                         principalColumn: "Id");
                 });
 
@@ -60,6 +85,9 @@ namespace Projeto_SolCar.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Planos");
+
+            migrationBuilder.DropTable(
+                name: "Clientes");
         }
     }
 }

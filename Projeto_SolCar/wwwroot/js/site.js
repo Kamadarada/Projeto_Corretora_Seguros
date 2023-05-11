@@ -42,3 +42,27 @@ async function BuscaCep(CEP) {
 }
 
 
+//função para alterar exibição do formulário de plano
+
+
+
+
+
+function onChangePlanos(){
+    const formCarro = document.getElementById('formSeguroCarro')
+    const formCasa = document.getElementById('formSeguroCasa')
+    const SelectPlano = document.getElementById('SelecionarPlano').value
+
+    if (SelectPlano === 'SeguroCarro') {
+        formCasa.classList.add('d-none')
+        formCarro.classList.remove('d-none')
+    }
+    else if (SelectPlano === 'SeguroCasa') {
+        formCarro.classList.add('d-none')
+        formCasa.classList.remove('d-none')
+    }
+
+}
+
+
+
