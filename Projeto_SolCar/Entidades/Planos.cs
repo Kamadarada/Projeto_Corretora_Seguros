@@ -10,7 +10,6 @@ namespace Projeto_SolCar.Entidades
         public string? Observacao { get; set; }
 
 
-
     }
     
     public class SeguroCarro : Planos

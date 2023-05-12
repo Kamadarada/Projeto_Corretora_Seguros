@@ -38,8 +38,8 @@ namespace Projeto_SolCar.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Observacao = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ClientesId = table.Column<int>(type: "int", nullable: true),
+                    Observacao = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Discriminator = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Chassi = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Placa = table.Column<string>(type: "nvarchar(max)", nullable: true),

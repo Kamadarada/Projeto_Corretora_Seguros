@@ -6,9 +6,13 @@
 
 <h1>Atualizar informações</h1>
 
-<h4>Informações pessoais</h4>
+<a style="background-color: #e86d27;border-radius:5px; border:none; height:25px; color:white; padding:7px; text-decoration:none" asp-action="Consulta">Voltar à consulta </a>
+
+
+<h4 style="margin-top:35px">Informações pessoais</h4>
+
 <hr />
-<<div class="row justify-content-md-centerrow">
+<div class="row justify-content-md-centerrow">
     <div class="col-md-12">
         <form asp-action="Edit" class="row g-3">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -83,9 +87,6 @@
     </div>
 </div>
 
-<div>
-    <a asp-action="Consulta">Retornar a consulta</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

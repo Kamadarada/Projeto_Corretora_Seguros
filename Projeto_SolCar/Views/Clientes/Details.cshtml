@@ -51,7 +51,7 @@
 </style>
 
 
-<h1>Consulta</h1>
+<h1 style="margin-right:70px" >Consulta</h1>
 
 <a style="margin-top:85px;background-color: #e86d27;border-radius:5px; border:none; height:35px; color:white; padding:10px; text-decoration:none"
    asp-action="Consulta">Voltar à lista</a>
@@ -63,7 +63,7 @@
     <div class="MesmaLinha">
         <h6 id="DdN">Data de Nascimento:@Model.Data_nasc</h6>
         <h6 id="S">Sexo: Gênero</h6>
-        <a style="justify-self:end; width:25%" asp-action="Edit" class="btn btn-success" asp-route-id="@Model?.Id">Atualizar Cadastro</a>
+        <a style="margin-left:40px; width:25%" asp-action="Edit" class="btn btn-success" asp-route-id="@Model?.Id">Atualizar Cadastro</a>
 
     </div>
     <div class="MesmaLinha">
@@ -87,7 +87,7 @@
 </ul>
 <hr>
 <ul>
-    <h4 id="P" style="align-self:center">@Model.Planos.</h4>
+    <h4 id="P" style="align-self:center">@Model.Planos</h4>
     <br>
     <div class="MesmaLinha">
         <h6 id="S_D">Seguro domiciliar: Plano</h6>
@@ -119,8 +119,9 @@
 
 
 
-<div>
+<!--<div>
     <a asp-action="Edit" class="btn btn-success" asp-route-id="@Model?.Id">Edit</a> 
     
     <a asp-action="Delete" class="btn btn-danger" asp-route-id="@Model?.Id">Delete</a>
-</div>
+</div>-->
+

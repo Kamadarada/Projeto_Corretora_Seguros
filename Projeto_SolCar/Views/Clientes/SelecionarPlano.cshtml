@@ -97,20 +97,39 @@
     
 </div>
 <hr/>
-<div style="padding-bottom:20px ; width:24%" class="col-md-3">
-    <label>Selecionar Plano</label>
-    <select onchange="onChangePlanos()" id="SelecionarPlano" class="form-select" aria-label="Selecione o seguro"> 
-            <option selected value="SeguroCasa">Seguro de Casa</option> 
-            <option value="SeguroCarro">Seguro de Carro</option> 
-            
-    </select>
 
+
+
+
+<!--<div style="margin-bottom:20px" class="MesmaLinha">
+
+
+    
+    Data de contrato <input style="margin: 0 9px ; width:14%" class="form-control" value="Model.thisDay.ToString(dd/MM/yyyy)" />
+    Data de expiração  <input style="margin: 0 9px ; width:14%" class="form-control" value="Model.nextyear.ToString(dd/MM/yyyy)"" />
+
+
+   
+
+</div -->
+
+<div style="width:24%" class="col-md-3">
+    <label>Selecionar Plano</label>
+    <select onchange="onChangePlanos()" id="SelecionarPlano" class="form-select" aria-label="Selecione o seguro">
+        <option selected value="SeguroCasa">Seguro de Casa</option>
+        <option value="SeguroCarro">Seguro de Carro</option>
+
+    </select>
 </div>
 
 
 
 
-<div class="row justify-content-md-centerrow">
+
+
+<div style="margin-top:10px" class="row justify-content-md-centerrow">
+    
+
     <div class="col-md">
         <form id="formSeguroCasa" method="post" asp-controller="Planos" asp-action="CadastroSeguroCasa" class="row g-3">
             <input type="hidden" name="ClienteId" value="@Model.Id"/>

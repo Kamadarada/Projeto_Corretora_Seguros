@@ -12,7 +12,7 @@ using Projeto_SolCar;
 namespace Projeto_SolCar.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20230511010412_init")]
+    [Migration("20230512011635_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -198,9 +198,11 @@ namespace Projeto_SolCar.Migrations
 
             modelBuilder.Entity("Projeto_SolCar.Entidades.Planos", b =>
                 {
-                    b.HasOne("Projeto_SolCar.Entidades.Clientes", null)
+                    b.HasOne("Projeto_SolCar.Entidades.Clientes", "Clientes")
                         .WithMany("Planos")
                         .HasForeignKey("ClientesId");
+
+                    b.Navigation("Clientes");
                 });
 
             modelBuilder.Entity("Projeto_SolCar.Entidades.Clientes", b =>

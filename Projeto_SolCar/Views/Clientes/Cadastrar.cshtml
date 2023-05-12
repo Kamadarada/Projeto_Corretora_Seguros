@@ -7,21 +7,22 @@
 <h2 style="text-align:center; margin-top:25px;">Cadastrar cliente</h2>
 
 
-<hr />
+<hr style="width:70%; margin-left:210px; margin-bottom:70px" />
+
+<h4 style="margin-bottom:10px; margin-left:215px">Informações pessoais</h4>
 
 
+<div class="row justify-content-md-centerrow" style="padding-left:17%"
 
-<h4 style="margin-bottom:40px;">Informações pessoais</h4>
-<div class="row justify-content-md-centerrow">
-    <div class="col-md-12">
+    <div class="col-md-10">
         <form asp-action="Cadastrar" class="row g-3">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="col-md-7">
+            <div class="col-md-8">
                 <label asp-for="Nome" class="form-label"></label>
                 <input asp-for="Nome" class="form-control" />
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-2">
                 <label asp-for="Data_nasc" class="form-label">Data de Nascimento</label>
                 <input type="date" asp-for="Data_nasc" class="form-control" />
 
@@ -37,9 +38,13 @@
                 <input asp-for="RG" class="form-control" />
                 <span asp-validation-for="RG" class="text-danger"></span>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <label asp-for="Sexo" class="form-label"></label>
-                <select asp-for="Sexo" class="form-select" aria-label="Selecione o seu sexo"> <option selected=""></option> <option value="Masculino">Masculino</option> <option value="Feminino">Feminino</option> <option value="_PnD">Prefiro não dizer</option> </select>
+                <select asp-for="Sexo" class="form-select" aria-label="Selecione o seu sexo"> 
+                    <option value="" selected disabled hidden>Selecione o sexo</option>
+                    <option value="Masculino">Masculino</option> 
+                    <option value="Feminino">Feminino</option> 
+                    <option value="_PnD">Prefiro não dizer</option> </select>
                 <span asp-validation-for="Sexo" class="text-danger"></span>
             </div>
             <div class="col-md-8">
@@ -47,27 +52,28 @@
                 <input asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <label asp-for="Telefone" class="form-label"></label>
                 <input asp-for="Telefone" class="form-control" />
                 <span asp-validation-for="Telefone" class="text-danger"></span>
             </div>
-            <hr style="margin-top:40px"></hr>
+            <hr style="width:82%; margin-left:10px; margin-bottom:10px; margin-top:40px" />
+
             <h4 style="margin-bottom:40px;">Informações de Endereço</h4>
 
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <label asp-for="CEP" class="form-label"></label>
                 <input id="inputCEP" asp-for="CEP" class="form-control" />
                 <span asp-validation-for="CEP" class="text-danger"></span>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-7">
                 <label asp-for="Endereco" class="form-label">Endereço</label>
                 <input id="inputRua" asp-for="Endereco" class="form-control" />
                 <span asp-validation-for="Endereco" class="text-danger"></span>
             </div>
             
             
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <label asp-for="Bairro" class="form-label"></label>
                 <input id="inputBairro" asp-for="Bairro" class="form-control" />
                 <span asp-validation-for="Bairro" class="text-danger"></span>
@@ -77,13 +83,43 @@
                 <input id="inputCidade" asp-for="Cidade" class="form-control" />
                 <span asp-validation-for="Cidade" class="text-danger"></span>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <label asp-for="Estado" class="form-label"></label>
-                <input id="inputEstado" asp-for="Estado" class="form-control" />
+                <select id="inputEstado" asp-for="Estado" class="form-select" name="estado">
+                    <option value="" selected disabled hidden>Selecione o estado</option>
+                    <option value="AC">AC</option>
+                    <option value="AL">AL</option>
+                    <option value="AP">AP</option>
+                    <option value="AM">AM</option>
+                    <option value="BA">BA</option>
+                    <option value="CE">CE</option>
+                    <option value="DF">DF</option>
+                    <option value="ES">ES</option>
+                    <option value="GO">GO</option>
+                    <option value="MA">MA</option>
+                    <option value="MT">MT</option>
+                    <option value="MS">MS</option>
+                    <option value="MG">MG</option>
+                    <option value="PA">PA</option>
+                    <option value="PB">PB</option>
+                    <option value="PR">PR</option>
+                    <option value="PE">PE</option>
+                    <option value="PI">PI</option>
+                    <option value="RJ">RJ</option>
+                    <option value="RN">RN</option>
+                    <option value="RS">RS</option>
+                    <option value="RO">RO</option>
+                    <option value="RR">RR</option>
+                    <option value="SC">SC</option>
+                    <option value="SP">SP</option>
+                    <option value="SE">SE</option>
+                    <option value="TO">TO</option>
+                </select>
+
                 <span asp-validation-for="Estado" class="text-danger"></span>
             </div>
-            <div class="d-grid gap-2">
-                <input style="margin-top:65px;background-color: #e86d27; border-radius:5px;border:none; height:35px; color:white" type="submit" value="Cadastrar informações"  />
+            <div class="col-md-10">
+                <input style="margin-top:45px;background-color: #e86d27; border-radius:5px;border:none; width:100%;  height:35px; color:white" type="submit" value="Cadastrar informações"  />
             </div>
         </form>
     </div>

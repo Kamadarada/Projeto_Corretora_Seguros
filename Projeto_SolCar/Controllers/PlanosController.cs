@@ -67,7 +67,7 @@ namespace Projeto_SolCar.Controllers
 
             Clientes cliente = db.Clientes.Where(a => a.Id == data.ClienteId).FirstOrDefault();
 
-            if(cliente == null)
+            if (cliente == null)
             {
                 return BadRequest();
             }
@@ -90,6 +90,7 @@ namespace Projeto_SolCar.Controllers
                 Desmoronamento = data.Desmoronamento,
                 Observacao = data.Observacao,
                 Clientes = cliente
+                
 
             };
 
