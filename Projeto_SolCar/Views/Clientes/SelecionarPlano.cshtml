@@ -113,7 +113,7 @@
 
 </div -->
 
-<div style="width:24%" class="col-md-3">
+<div style="width:24%; margin-bottom:25px;" class="col-md-3">
     <label>Selecionar Plano</label>
     <select onchange="onChangePlanos()" id="SelecionarPlano" class="form-select" aria-label="Selecione o seguro">
         <option selected value="SeguroCasa">Seguro de Casa</option>
@@ -130,84 +130,103 @@
 <div style="margin-top:10px" class="row justify-content-md-centerrow">
     
 
-    <div class="col-md">
+    <div class="col-md-12">
         <form id="formSeguroCasa" method="post" asp-controller="Planos" asp-action="CadastroSeguroCasa" class="row g-3">
+            <h4 style="margin-bottom:35px">Informações residênciais</h4>
+
             <input type="hidden" name="ClienteId" value="@Model.Id"/>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="col-md-3">
-                <label name="TipoResedência" class="form-label">Tipo de Residência</label>
-                <input name="TipoResedência" class="form-control" />
-                <span  name="TipoResedência" class="text-danger"></span>
-            </div>
+
+
             <div class="col-md-3">
                 <label name="TipoCobertura" class="form-label">Tipo de cobertura</label>
-                <input name="TipoCobertura" class="form-control" />
+                <select name="TipoCobertura" class="form-select" aria-label="Selecione a cobertura">
+                    <option value="" selected disabled hidden>Selecione o tipo de cobertura</option>
+                    <option selected value="Simples">Simples</option>
+                    <option value="Básico">Básico</option>
+                    <option value="Completo">Completo</option>
+
+                </select>
 
                 <span name="TipoCobertura" class="text-danger"></span>
             </div>
+
+            <div class="col-md-3">
+                <label name="TipoResedência" class="form-label">Tipo de Residência</label>
+                <select name="TipoResedência" class="form-select" aria-label="Tipo de residência">
+                    <option value="" selected disabled hidden>Selecione o tipo de residência</option>
+                    <option selected value="Casa">Casa</option>
+                    <option value="Apartamento">Apartamento</option>
+                   
+                    <span name="TipoResedência" class="text-danger"></span>
+                </select>                
+            </div>
+            
             <div class="col-md-3">
                 <label name="Basica" class="form-label">Básica</label>
-                <input name="Basica" class="form-control" />
+                <input style="text-align:end" placeholder="R$ 10.000,00" name="Basica" class="form-control" />
                 <span name="Basica" class="text-danger"></span>
             </div>
             <div class="col-md-3">
                 <label name="DanosMorais" class="form-label">Danos morais</label>
-                <input name="DanosMorais" class="form-control" />                
+                <input style="text-align:end" placeholder="R$ 10.000,00" name="DanosMorais" class="form-control" />
                 <span name="DanosMorais" class="text-danger"></span>
             </div>
             <div class="col-md-3">
                 <label name="DanosEletricos" class="form-label">Danos elétricos</label>
-                <input name="DanosEletricos" class="form-control" />
+                <input style="text-align:end" placeholder="R$ 10.000,00" name="DanosEletricos" class="form-control" />
                 <span name="DanosEletricos" class="text-danger"></span>
             </div>
             <div class="col-md-3">
                 <label name="Equipamentos" class="form-label">Equipamentos</label>
-                <input name="Equipamentos" class="form-control" />
+                <input style="text-align:end" placeholder="R$ 10.000,00" name="Equipamentos" class="form-control" />
                 <span name="Equipamentos" class="text-danger"></span>
             </div>
-            <hr style="margin-top:40px"></hr>
+            
 
             <div class="col-md-3">
                 <label name="Aluguel" class="form-label">Aluguel</label>
-                <input name="Aluguel" class="form-control" />
+                <input style="text-align:end" placeholder="R$ 10.000,00" name="Aluguel" class="form-control" />
                 <span name="Aluguel" class="text-danger"></span>
             </div>
             <div class="col-md-3">
                 <label name="Vidros" class="form-label">Vidros</label>
-                <input name="Vidros" class="form-control" />
+                <input style="text-align:end" placeholder="R$ 10.000,00" name="Vidros" class="form-control" />
                 <span name="Vidros" class="text-danger"></span>
             </div>
-
+            <hr style="margin-top:40px"></hr>
 
             <div class="col-md-3">
                 <label name="Roubo" class="form-label">Roubo/Furto</label>
-                <input name="Roubo" class="form-control" />
+                <input style="text-align:end" placeholder="R$ 10.000,00" name="Roubo" class="form-control" />
                 <span name="Roubo" class="text-danger"></span>
             </div>
             <div class="col-md-3">
                 <label name="Vendaval" class="form-label">Vendaval</label>
-                <input name="Vendaval" class="form-control" />
+                <input style="text-align:end" placeholder="R$ 10.000,00" name="Vendaval" class="form-control" />
                 <span name="Vendaval" class="text-danger"></span>
             </div>
             <div class="col-md-3">
                 <label name="Alagamentos" class="form-label">Alagamentos</label>
-                <input name="Alagamentos" class="form-control" />
+                <input style="text-align:end" placeholder="R$ 10.000,00" name="Alagamentos" class="form-control" />
                 <span name="Alagamentos" class="text-danger"></span>
             </div>
             <div class="col-md-3">
                 <label name="Impacto" class="form-label">Impacto</label>
-                <input name="Impacto" class="form-control" />
+                <input style="text-align:end" placeholder="R$ 10.000,00" name="Impacto" class="form-control" />
                 <span name="Impacto" class="text-danger"></span>
             </div>
             <div class="col-md-3">
                 <label name="Desmoronamento" class="form-label">Desmoronamento</label>
-                <input name="Desmoronamento" class="form-control" />
+                <input style="text-align:end" placeholder="R$ 10.000,00" name="Desmoronamento" class="form-control" />
                 <span name="Desmoronamento" class="text-danger"></span>
-            </div>
+            </div> 
+            <hr style="margin-top:40px"></hr>
 
-            <div class="col-md-3">
-                <label name="Observacao" class="form-label">Observação</label>
-                <input name="Observacao" class="form-control" />
+            <div class="col-md-12">
+                <label name="Observacao" class="form-label">Observações</label>
+                <textarea name="Observacao" id="OBS_Texto" placeholder="Nenhuma observação" class="form-control" style="width:100%; height: 100px;"></textarea>
+               
                 <span name="Observacao" class="text-danger"></span>
             </div>
 
@@ -215,7 +234,7 @@
             <div class="d-grid gap-2">
                 <input style="margin-top:65px;background-color: #e86d27; border-radius:5px;border:none; height:35px; color:white" type="submit" value="Cadastrar informações" />
             </div>
-        </form>
+        </form> 
     </div>
 </div>
 
@@ -225,67 +244,93 @@
 
 <div class="row justify-content-md-centerrow">
     <div class="col-md-12">
+        
         <form  id="formSeguroCarro" method="post" asp-controller="Planos" asp-action="CadastroSeguroCarro" class="row g-3 d-none">
+            <h4 style="margin-bottom:35px">Informações do veículo</h4>
+
             <input type="hidden" name="ClienteId" value="@Model.Id" />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+            <div class="col-md-3">
+                <label name="TipoCobertura" class="form-label">TipoCobertura</label>
+                <select name="TipoCobertura" class="form-select" aria-label="Selecione a cobertura">
+                    <option value="" selected disabled hidden>Selecione o tipo de cobertura</option>
+                    <option selected value="Simples">Simples</option>
+                    <option value="Básico">Básico</option>
+                    <option value="Completo">Completo</option>
+
+                </select>
+                <span name="TipoCobertura" class="text-danger"></span>
+            </div>
+
             <div class="col-md-3">
                 <label name="Chassi" class="form-label">Chassi</label>
-                <input name="Chassi" class="form-control" />
+                <input style="text-align:end" placeholder="XXX.XXX.XXX.XXX.XXX.XXX" name="Chassi" class="form-control" />
                 <span name="Chassi" class="text-danger"></span>
             </div>
+
             <div class="col-md-3">
                 <label name="Placa" class="form-label">Placa</label>
-                <input name="Placa" class="form-control" />
+                <input style="text-align:end" placeholder="EWJ-2032" name="Placa" class="form-control" />
 
-                <span name="TipoCobertura" class="text-danger"></span>
+                <span name="Placa" class="text-danger"></span>
             </div>
             <div class="col-md-3">
                 <label name="AnoFabricacao" class="form-label">Ano de Fabricação</label>
-                <input name="AnoFabricacao" class="form-control" />
+                <input style="text-align:end" placeholder="EX: 2012" name="AnoFabricacao" class="form-control" />
                 <span name="AnoFabricacao" class="text-danger"></span>
             </div>
             <div class="col-md-3">
                 <label name="AnoModelo" class="form-label">Ano do modelo</label>
-                <input name="AnoModelo" class="form-control" />
+                <input style="text-align:end" placeholder="EX: 2013" name="AnoModelo" class="form-control" />
                 <span name="AnoModelo" class="text-danger"></span>
             </div>
             <div class="col-md-3">
                 <label name="Modelo" class="form-label">Modelo do veículo</label>
-                <input name="Modelo" class="form-control" />
+                <input style="text-align:end" placeholder="Código de modelo" name="Modelo" class="form-control" />
                 <span name="Modelo" class="text-danger"></span>
             </div>
 
             <div class="col-md-3">
                 <label name="Marca" class="form-label">Marca do veículo</label>
-                <input name="Marca" class="form-control" />
+                <input style="text-align:end" placeholder="Volkswagen" name="Marca" class="form-control" />
                 <span name="Marca" class="text-danger"></span>
             </div>
 
 
             <div class="col-md-3">
                 <label name="Quilometragem" class="form-label">Quilometragem (km rodados)</label>
-                <input name="Quilometragem" class="form-control" />
+                <input style="text-align:end" placeholder="EX: 150.000KM" name="Quilometragem" class="form-control" />
                 <span name="Quilometragem" class="text-danger"></span>
             </div>
             <hr style="margin-top:40px"></hr>
 
             <div class="col-md-3">
                 <label name="FIPE" class="form-label">FIPE</label>
-                <input name="FIPE" class="form-control" />
+                <input style="text-align:end" placeholder="Código FIPE" name="FIPE" class="form-control" />
                 <span name="FIPE" class="text-danger"></span>
             </div>
-            <div class="col-md-3">
-                <label name="TipoCobertura" class="form-label">TipoCobertura</label>
-                <input name="TipoCobertura" class="form-control" />
-                <span name="TipoCobertura" class="text-danger"></span>
-            </div>
+            
 
 
             <div class="col-md-3">
-                <label name="Descricao" class="form-label">Roubo/Furto</label>
-                <input name="Descricao" class="form-control" />
-                <span name="Descricao" class="text-Descricao"></span>
+                <label name="Roubo" class="form-label">Roubo/Furto</label>
+                <input name="Roubo" class="form-control" />
+                <span name="Roubo" class="text-Descricao"></span>
             </div>
+
+            <hr style="margin-top:40px"></hr>
+
+            <div class="col-md-12">
+                <label name="Observacao" class="form-label">Observações</label>
+                <textarea name="Observacao" id="OBS_Texto" placeholder="Nenhuma observação" class="form-control" style="width:100%; height: 100px;"></textarea>
+                <span name="Observacao" class="text-danger"></span>
+            </div>
+
+                
+
+
            
 
 
