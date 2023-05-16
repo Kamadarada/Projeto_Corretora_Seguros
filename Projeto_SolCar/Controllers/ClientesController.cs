@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations.Operations;
@@ -6,8 +7,13 @@ using Projeto_SolCar.Entidades;
 
 namespace Projeto_SolCar.Controllers
 {
+
+    //[Authorize(AuthenticationSchemes = "CookieAuthentication")]
+
     public class ClientesController : Controller
     {
+
+
 
         private readonly Contexto db;
         // GET: ClientesController
@@ -138,7 +144,9 @@ namespace Projeto_SolCar.Controllers
         }
 
 
-        
+        //Informações de LOGIN e LOGOFF
+
+
 
 
     }

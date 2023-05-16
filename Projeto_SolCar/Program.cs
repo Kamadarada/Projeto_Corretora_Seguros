@@ -7,6 +7,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<Contexto>(opt => opt.UseSqlServer("Server=DESKTOP-D1SC2NC\\SQLEXPRESS;Database=Projeto_Solcar;Trusted_Connection=True;\r\n"));
 
+/*builder.Services.AddAuthentication("CookieAuthentication").AddCookie("CookieAuthentication", option =>
+{
+    option.LoginPath = "/Login/Entrar";
+    option.AccessDeniedPath = "/Login/Ops";
+});*/
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -22,7 +28,9 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
+app.UseAuthentication();
+
+//app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
