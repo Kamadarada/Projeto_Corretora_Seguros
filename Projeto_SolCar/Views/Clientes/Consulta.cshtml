@@ -15,14 +15,47 @@
 
 <p>
     <a style="margin-bottom:100px;background-color: #e86d27;border-radius:5px; border:none; height:35px; color:white; padding:7px; text-decoration:none" asp-action="Cadastrar">Cadastrar novo cliente </a>
+
 </p>
+
+<div style="margin-bottom:50px;" class="card">
+    <div class="card-header"><strong>Pesquisar usuários</strong></div>
+    <div style="background-color:#f2f2f2; border-color: #e86d27" class="card-body">
+        <form action="/Clientes/Consulta" method="get">
+            <div class="row">
+                
+                <select class="form-select" style="width:255px" name="tipoPesquisa">
+                    <option value="porNome">Buscar por nome</option>
+                    <option value="porCPF">Buscar por CPF</option>
+
+                </select>
+
+                <div class="col-4">
+                    
+                    <input type="text" name="query" class="form-control" placeholder="Buscar cadastro"></input>
+                </div>
+
+
+
+                <div class="col-4">
+                    <button class="btn btn-success" type="submit">Buscar</button>
+                </div>
+
+
+            </div>
+        </form>
+        
+    </div>
+</div>
+
+
 
 <table class="table table-striped">
 
 
     <thead style="text-align:center">
             <tr>
-                <th>Código</th>
+                
                 <th>Nome</th>
                 <th>Endereco</th>
                 <th>Telefone</th>
@@ -37,9 +70,7 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>
-                        @item.Id
-                    </td>
+                   
 
                     <td>
                         @item.Nome

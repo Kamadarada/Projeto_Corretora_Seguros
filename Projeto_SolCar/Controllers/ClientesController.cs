@@ -28,7 +28,32 @@ namespace Projeto_SolCar.Controllers
 
         
 
-        public ActionResult Consulta()
+        public ActionResult Consulta(string query, string tipoPesquisa)
+        {
+            if (string.IsNullOrEmpty(query))
+            {
+                return View(db.Clientes.ToList());
+            }
+
+            else if (tipoPesquisa == "porNome")
+            {
+                return View(db.Clientes.Where(a => a.Nome.Contains(query)) );
+            }
+
+            else if(tipoPesquisa == "porCPF")
+            {
+                return View(db.Clientes.Where(a => a.CPF.Contains(query)));
+
+            }
+
+            else
+            {
+                return View(db.Clientes.ToList());
+
+            }
+        }
+
+        public ActionResult ConsultaPlano()
         {
             return View(db.Clientes.ToList());
         }

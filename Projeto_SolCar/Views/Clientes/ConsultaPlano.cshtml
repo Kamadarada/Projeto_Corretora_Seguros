@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Projeto_SolCar.Entidades.Clientes>
+
+@{
+    ViewData["Title"] = "Consulta";
+}
+
+<h1 style="margin-bottom:100px;">Cadastro plano</h1>
+
+<style>
+
+    .btn {
+    }
+</style>
+
+<p>
+    <a style="margin-bottom:100px;background-color: #e86d27;border-radius:5px; border:none; height:35px; color:white; padding:7px; text-decoration:none" asp-action="Cadastrar">Cadastrar novo cliente </a>
+</p>
+
+<table class="table table-striped">
+
+
+    <thead style="text-align:center">
+        <tr>
+            <th>Código</th>
+            <th>Nome</th>
+            <th>Endereco</th>
+            <th>Telefone</th>
+            <th>CPF</th>
+            <th>Data Nascimento</th>
+            <th>Plano Contratado</th>
+            <th>Opções</th>
+        </tr>
+    </thead>
+    <tbody style="text-align:center">
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+
+                <td>
+                    @item.Nome
+                </td>
+
+                <td>
+                    @item.Endereco
+                </td>
+
+                <td>
+                    @item.Telefone
+                </td>
+
+                <td>
+                    @item.CPF
+                </td>
+                <td>
+                    @item.Data_nasc
+                </td>
+                <td>
+                    @item.Data_nasc
+                </td>
+
+                <td>
+                    <a style="margin-top:65px;background-color: #e86d27;border-radius:5px; border:none; height:20px; color:white; padding:7px; text-decoration:none" asp-action="SelecionarPlano" asp-route-id="@item.Id">Cadastrar</a>
+                </td>
+
+            </tr>
+
+
+
+        }
+    </tbody>
+
+
+
+</table>
