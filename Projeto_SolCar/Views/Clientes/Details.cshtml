@@ -1,5 +1,4 @@
-﻿@model Projeto_SolCar.Entidades.Clientes
-
+﻿@model Projeto_SolCar.Models.PlanosViewModel
 
 @{
     ViewData["Title"] = "Details";
@@ -87,6 +86,11 @@
 </ul>
 <hr>
 <ul>
+    @foreach(var Plano in Model.Seguro_Carro)
+    {
+        <h4 id="P" style="align-self:center">@Plano.Placa</h4>
+
+    }
     <h4 id="P" style="align-self:center">@Model.Planos</h4>
     <br>
     <div class="MesmaLinha">
