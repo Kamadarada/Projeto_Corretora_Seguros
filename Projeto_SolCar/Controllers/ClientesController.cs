@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations.Operations;
 using Projeto_SolCar.Entidades;
+using Projeto_SolCar.Models;
 
 namespace Projeto_SolCar.Controllers
 {
@@ -67,6 +68,8 @@ namespace Projeto_SolCar.Controllers
         // GET: ClientesController/Details/5
         public ActionResult Details(int id)
         {
+            //PlanosViewModel model = new PlanosViewModel();
+            //model.Seguro_Casa = db.Planos.ToList();
             return View(db.Clientes.Where(a => a.Id == id).FirstOrDefault());
         }
 
