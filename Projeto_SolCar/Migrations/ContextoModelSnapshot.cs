@@ -123,6 +123,14 @@ namespace Projeto_SolCar.Migrations
                     b.Property<string>("Chassi")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("DataContratoCarro")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DataExpiraCarro")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Descricao")
                         .HasColumnType("nvarchar(max)");
 
@@ -164,6 +172,14 @@ namespace Projeto_SolCar.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DanosMorais")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DataContratoCasa")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DataExpiraCasa")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Desmoronamento")

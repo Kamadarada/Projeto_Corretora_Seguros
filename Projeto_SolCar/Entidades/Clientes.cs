@@ -28,15 +28,17 @@
             
         public string Estado { get; set; } = string.Empty;
 
-        //public readonly DateTime thisDay = DateTime.Today;
 
-        //public readonly DateTime nextyear = DateTime.Today.AddDays(365);
-
-
+        
 
         public ICollection<Planos>? Planos{ get; set; }    
+
+
     }
+
+}
+
+
 
     
 
-}

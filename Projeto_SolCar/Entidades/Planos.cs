@@ -9,9 +9,10 @@ namespace Projeto_SolCar.Entidades
         public int Id { get; set; }
         public string? Observacao { get; set; }
 
+       
 
     }
-    
+
     public class SeguroCarro : Planos
     {
         public string? Chassi { get; set; }
@@ -34,7 +35,13 @@ namespace Projeto_SolCar.Entidades
 
         public string? Descricao {get; set; }
 
-        
+        public string DataContratoCarro { get; set; }
+
+        public string DataExpiraCarro { get; set; }
+
+
+
+
 
 
     }
@@ -66,6 +73,12 @@ namespace Projeto_SolCar.Entidades
         public string? Impacto { get; set; }
 
         public string? Desmoronamento { get; set; }
+
+        public string DataContratoCasa { get; set; }
+
+        public string DataExpiraCasa { get; set; }
+
+
 
 
     }

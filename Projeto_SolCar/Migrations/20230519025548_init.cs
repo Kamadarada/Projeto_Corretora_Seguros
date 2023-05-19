@@ -51,6 +51,8 @@ namespace Projeto_SolCar.Migrations
                     FIPE = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TipoCobertura = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Descricao = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DataContratoCarro = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DataExpiraCarro = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TipoResedência = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SeguroCasa_TipoCobertura = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Basica = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -63,7 +65,9 @@ namespace Projeto_SolCar.Migrations
                     Vendaval = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Alagamentos = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Impacto = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Desmoronamento = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Desmoronamento = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DataContratoCasa = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DataExpiraCasa = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

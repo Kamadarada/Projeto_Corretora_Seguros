@@ -93,6 +93,8 @@ namespace Projeto_SolCar.Controllers
                 Impacto = data.Impacto,
                 Desmoronamento = data.Desmoronamento,
                 Observacao = data.Observacao,
+                DataContratoCasa = data.DataContratoCasa,
+                DataExpiraCasa = data.DataExpiraCasa,
                 Clientes = cliente
                 
 
@@ -135,6 +137,8 @@ namespace Projeto_SolCar.Controllers
                 FIPE = data.FIPE,
                 TipoCobertura = data.TipoCobertura,
                 Descricao = data.Descricao,
+                DataContratoCarro = data.DataContratoCarro,
+                DataExpiraCarro = data.DataExpiraCarro,
                 Clientes = cliente
 
             };

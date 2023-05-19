@@ -39,7 +39,7 @@
         display:flex;
     }
 
- 
+  
 
     .CaixaCliente {
         padding-top: 25px;
@@ -101,17 +101,7 @@
 
 
 
-<!--<div style="margin-bottom:20px" class="MesmaLinha">
 
-
-    
-    Data de contrato <input style="margin: 0 9px ; width:14%" class="form-control" value="Model.thisDay.ToString(dd/MM/yyyy)" />
-    Data de expiração  <input style="margin: 0 9px ; width:14%" class="form-control" value="Model.nextyear.ToString(dd/MM/yyyy)"" />
-
-
-   
-
-</div -->
 
 <div style="width:24%; margin-bottom:25px;" class="col-md-3">
     <label>Selecionar Plano</label>
@@ -132,6 +122,12 @@
 
     <div class="col-md-12">
         <form id="formSeguroCasa" method="post" asp-controller="Planos" asp-action="CadastroSeguroCasa" class="row g-3">
+            <div class="col-md-3">
+                <label name="DataContratoCasa" class="form-label" >Data de contrato</label>
+                <input  name="DataContratoCasa" class="form-control" type="date" value="Preencha a data do contrato" />
+                <label name="DataExpiraCasa" class="form-label">Data de expiração</label>
+                <input name="DataExpiraCasa" class="form-control " type="date" value="Expira em" />
+            </div>
             <h4 style="margin-bottom:35px">Informações residênciais</h4>
 
             <input type="hidden" name="ClienteId" value="@Model.Id"/>
@@ -246,6 +242,12 @@
     <div class="col-md-12">
         
         <form  id="formSeguroCarro" method="post" asp-controller="Planos" asp-action="CadastroSeguroCarro" class="row g-3 d-none">
+            <div class="col-md-3">
+                <label name="DataContratoCarro" class="form-label">Data de contrato</label>
+                <input name="DataContratoCarro" class="form-control" type="date" value="Preencha a data do contrato" />
+                <label name="DataExpiraCarro" class="form-label">Data de expiração</label>
+                <input name="DataExpiraCarro" class="form-control " type="date" value="Expira em" />
+            </div>
             <h4 style="margin-bottom:35px">Informações do veículo</h4>
 
             <input type="hidden" name="ClienteId" value="@Model.Id" />

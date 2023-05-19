@@ -12,7 +12,7 @@ using Projeto_SolCar;
 namespace Projeto_SolCar.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20230512011635_init")]
+    [Migration("20230519025548_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -125,6 +125,14 @@ namespace Projeto_SolCar.Migrations
                     b.Property<string>("Chassi")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("DataContratoCarro")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DataExpiraCarro")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Descricao")
                         .HasColumnType("nvarchar(max)");
 
@@ -166,6 +174,14 @@ namespace Projeto_SolCar.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DanosMorais")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DataContratoCasa")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DataExpiraCasa")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Desmoronamento")
