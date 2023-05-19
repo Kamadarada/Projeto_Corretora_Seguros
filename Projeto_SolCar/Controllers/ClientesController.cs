@@ -70,7 +70,29 @@ namespace Projeto_SolCar.Controllers
         {
             //PlanosViewModel model = new PlanosViewModel();
             //model.Seguro_Casa = db.Planos.ToList();
-            return View(db.Clientes.Where(a => a.Id == id).FirstOrDefault());
+            var Cliente = db.Clientes.Where(a => a.Id == id).FirstOrDefault();
+
+            var PlanosViewModel = new PlanosViewModel
+            {
+                Nome = Cliente.Nome,
+                Telefone = Cliente.Telefone,
+                RG = Cliente.RG,
+                CEP = Cliente.CEP,
+                Email = Cliente.Email,
+                Bairro = Cliente.Bairro,
+                Data_nasc = Cliente.Data_nasc,
+                Cidade = Cliente.Cidade,
+                CPF = Cliente.CPF,
+                Sexo = Cliente.Sexo,
+                Endereco = Cliente.Endereco,
+                Estado = Cliente.Estado
+
+            };
+
+            PlanosViewModel.Seguro_Carro = db.SeguroCarro.Where(x=> x.Clientes.Id == id).ToList();
+            PlanosViewModel.Seguro_Casa = db.SeguroCasa.Where(x=> x.Clientes.Id ==id).ToList();
+
+            return View(PlanosViewModel);
         }
 
         // GET: ClientesController/Create

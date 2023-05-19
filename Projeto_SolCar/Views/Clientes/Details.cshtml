@@ -1,4 +1,4 @@
-﻿@model Projeto_SolCar.Entidades.Clientes
+﻿@model Projeto_SolCar.Models.PlanosViewModel
 
 @{
     ViewData["Title"] = "Details";
@@ -86,18 +86,32 @@
 </ul>
 <hr>
 <ul>
-    <!--foreach(var Plano in Model.Seguro_Carro)
+    @foreach(var plano in Model.Seguro_Carro)
     {
-        <h4 id="P" style="align-self:center">Plano.Placa</h4>
+      
 
-    }-->
-    <h4 id="P" style="align-self:center"></h4>
+     <div class="MesmaLinha">
+        <h6 id="S_D">Seguro domiciliar: @plano.Chassi</h6>
+        <h6 id="SD_DC">Data do contrato: @plano.Placa</h6>
+        
+     </div>
+
+    }
+
+    @foreach(var plano in Model.Seguro_Casa)
+    {
+      
+
+     <div class="MesmaLinha">
+        <h6 id="S_D">Seguro domiciliar: @plano.Basica</h6>
+        <h6 id="SD_DC">Data do contrato: @plano.DanosMorais</h6>
+        
+     </div>
+
+    }
+    
     <br>
-    <div class="MesmaLinha">
-        <h6 id="S_D">Seguro domiciliar: Plano</h6>
-        <h6 id="SD_DC">Data do contrato: 00/00/0000</h6>
-        <h6 id="SD_E">Expira em: 00/00/0000</h6>
-    </div>
+    
     <div class="MesmaLinha">
         <h6 id="S_A">Seguro de automóveis: Plano</h6>
         <h6 id="SA_DC">Data do contrato: 00/00/0000</h6>
