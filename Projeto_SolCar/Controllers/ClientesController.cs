@@ -58,6 +58,10 @@ namespace Projeto_SolCar.Controllers
                 return View(db.Clientes.ToList());
 
             }
+
+
+
+
         }
 
         public ActionResult ConsultaPlano()

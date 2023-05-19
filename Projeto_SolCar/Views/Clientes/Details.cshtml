@@ -47,6 +47,8 @@
         width: 100%;
         text-align: center;
     }
+
+
 </style>
 
 
@@ -62,7 +64,7 @@
     <div class="MesmaLinha">
         <h6 id="DdN">Data de Nascimento:@Model.Data_nasc</h6>
         <h6 id="S">Sexo: Gênero</h6>
-        <a style="margin-left:40px; width:25%" asp-action="Edit" class="btn btn-success" asp-route-id="@Model?.Id">Atualizar Cadastro</a>
+        
 
     </div>
     <div class="MesmaLinha">
@@ -96,8 +98,15 @@
         <h6 id="S_D">Seguro de Carro - @plano.TipoCobertura</h6>
         <h6 id="SD_DC">Data do contrato: @plano.DataContratoCarro</h6>
         <h6 id="SD_DC">Data do expiração: @plano.DataExpiraCarro</h6>
+        <br/>
+       
         
      </div>
+
+       
+       <label name="Observacao" class="form-label">@plano.Observacao</label>
+       <textarea name="Observacao" id="OBS_Texto" placeholder="Nenhuma observação" class="form-control" style="width:50%; height: 50px; margin-bottom:25px"></textarea>
+       
 
     }
 
@@ -109,13 +118,18 @@
             <h6 id="S_D">Plano: Seguro de Casa - @plano.TipoCobertura </h6>
             <h6 id="SD_DC">Data do contrato: @plano.DataContratoCasa</h6>
             <h6 id="SD_DC">Data do expiração: @plano.DataExpiraCasa</h6>
+            
      </div>
 
+        <label name="Observacao" class="form-label">@plano.Observacao</label>
+        <textarea name="Observacao" id="OBS_Texto" placeholder="Nenhuma observação" class="form-control" style="width:50%; height: 50px; margin-bottom:25px ;"></textarea>
+
+
+
     }
-    
-    
-    
-    
+
+
+
     
 </ul>
 <hr>

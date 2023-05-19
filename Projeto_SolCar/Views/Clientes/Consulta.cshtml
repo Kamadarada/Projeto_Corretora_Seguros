@@ -95,7 +95,9 @@
                     </td>
 
                     <td>
-                    <a style="margin-top:65px;background-color: #e86d27;border-radius:5px; border:none; height:20px; color:white; padding:7px; text-decoration:none" asp-action="Details" asp-route-id="@item.Id">Consultar</a>
+                    <a style="background-color: #e86d27; color:white" class="btn" asp-action="Details" asp-route-id="@item.Id">Consultar</a>
+                    <a asp-action="Edit" class="btn btn-success" asp-route-id="@item?.Id">Editar</a>
+                    <a style="color:white" class="btn btn-primary" asp-action="SelecionarPlano" asp-route-id="@item.Id">Novo Plano</a>
                 </td>
             
                 </tr>
