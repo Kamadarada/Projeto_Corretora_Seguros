@@ -12,6 +12,7 @@
 <h4 style="margin-bottom:10px; margin-left:215px">Informações pessoais</h4>
 
 
+
 <div class="row justify-content-md-centerrow" style="padding-left:17%"
 
     <div class="col-md-10">
@@ -24,18 +25,18 @@
             </div>
             <div class="col-md-2">
                 <label asp-for="Data_nasc" class="form-label">Data de Nascimento</label>
-                <input type="date" asp-for="Data_nasc" class="form-control" />
+                <input type="date"  asp-for="Data_nasc" class="form-control" />
 
                 <span asp-validation-for="Data_nasc" class="text-danger"></span>
             </div>
             <div class="col-md-4">
                 <label asp-for="CPF" class="form-label"></label>
-                <input asp-for="CPF" class="form-control" />
+                <input asp-for="CPF" placeholder="000-000-000-0" maxlength="14" class="form-control" />
                 <span asp-validation-for="CPF" class="text-danger"></span>
             </div>
             <div class="col-md-4">
                 <label asp-for="RG" class="form-label"></label>
-                <input asp-for="RG" class="form-control" />
+                <input asp-for="RG" placeholder="00-000-000-0" maxlength="12" class="form-control" />
                 <span asp-validation-for="RG" class="text-danger"></span>
             </div>
             <div class="col-md-2">
@@ -49,12 +50,12 @@
             </div>
             <div class="col-md-8">
                 <label asp-for="Email" class="form-label"></label>
-                <input asp-for="Email" class="form-control" />
+                <input asp-for="Email" placeholder="Exemplo@gmail.com"  class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="col-md-2">
                 <label asp-for="Telefone" class="form-label"></label>
-                <input asp-for="Telefone" class="form-control" />
+                <input asp-for="Telefone" placeholder="(00) 0000-0000" class="form-control" />
                 <span asp-validation-for="Telefone" class="text-danger"></span>
             </div>
             <hr style="width:82%; margin-left:10px; margin-bottom:10px; margin-top:40px" />
@@ -63,7 +64,7 @@
 
             <div class="col-md-3">
                 <label asp-for="CEP" class="form-label"></label>
-                <input id="inputCEP" asp-for="CEP" class="form-control" />
+                <input id="inputCEP" placeholder="00000-000" asp-for="CEP" class="form-control" />
                 <span asp-validation-for="CEP" class="text-danger"></span>
             </div>
             <div class="col-md-7">
