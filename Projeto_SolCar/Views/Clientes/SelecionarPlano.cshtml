@@ -125,10 +125,13 @@
             <div class="col-md-3">
                 <label name="DataContratoCasa" class="form-label" >Data de contrato</label>
                 <input  name="DataContratoCasa" class="form-control" type="date" value="Preencha a data do contrato" />
+                
+            </div>
+            <div class="col-md-3">
                 <label name="DataExpiraCasa" class="form-label">Data de expiração</label>
                 <input name="DataExpiraCasa" class="form-control " type="date" value="Expira em" />
             </div>
-            <h4 style="margin-bottom:35px">Informações residênciais</h4>
+            <h4 style="margin-bottom:15px; margin-top:35px">Informações residênciais</h4>
 
             <input type="hidden" name="ClienteId" value="@Model.Id"/>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -245,6 +248,10 @@
             <div class="col-md-3">
                 <label name="DataContratoCarro" class="form-label">Data de contrato</label>
                 <input name="DataContratoCarro" class="form-control" type="date" value="Preencha a data do contrato" />
+                
+            </div>
+
+            <div class="col-md-3">
                 <label name="DataExpiraCarro" class="form-label">Data de expiração</label>
                 <input name="DataExpiraCarro" class="form-control " type="date" value="Expira em" />
             </div>

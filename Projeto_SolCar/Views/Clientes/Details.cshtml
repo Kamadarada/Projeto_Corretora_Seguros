@@ -98,14 +98,17 @@
         <h6 id="S_D">Seguro de Carro - @plano.TipoCobertura</h6>
         <h6 id="SD_DC">Data do contrato: @plano.DataContratoCarro</h6>
         <h6 id="SD_DC">Data do expiração: @plano.DataExpiraCarro</h6>
+            
+            <a style="color:white" class="btn btn-success" asp-action="direcionaPlanoCarro" asp-route-id="@plano.Id">Detalhes</a>
+
         <br/>
        
         
      </div>
 
        
-       <label name="Observacao" class="form-label">@plano.Observacao</label>
-       <textarea name="Observacao" id="OBS_Texto" placeholder="Nenhuma observação" class="form-control" style="width:50%; height: 50px; margin-bottom:25px"></textarea>
+       <label name="Observacao" class="form-label"></label>
+        <textarea name="Observacao" id="OBS_Texto" placeholder="Nenhuma observação para seguro de carro" class="form-control" style="width:80%; height: 50px; margin-bottom:25px">@plano.Observacao</textarea>
        
 
     }
@@ -121,8 +124,8 @@
             
      </div>
 
-        <label name="Observacao" class="form-label">@plano.Observacao</label>
-        <textarea name="Observacao" id="OBS_Texto" placeholder="Nenhuma observação" class="form-control" style="width:50%; height: 50px; margin-bottom:25px ;"></textarea>
+        <label name="Observacao" class="form-label"></label>
+        <textarea name="Observacao" id="OBS_Texto" placeholder="Nenhuma observação para o seguro residêncial" class="form-control" style="width:80%; height: 50px; margin-bottom:25px ;">@plano.Observacao</textarea>
 
 
 

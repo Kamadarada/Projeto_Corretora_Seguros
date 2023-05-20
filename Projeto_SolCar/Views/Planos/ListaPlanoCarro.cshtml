@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Projeto_SolCar.Entidades.SeguroCarro>
+
+@{
+    ViewData["Title"] = "ListaPlanoCarro";
+}
+
+<h1>ListaPlanoCarro</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+
+<style>
+    .btn {
+        float: left;
+    }
+
+    .cinza {
+        color: #888888
+    }
+
+    h6 {
+        color: #888888;
+        display: inline-block;
+        width: 30%;
+    }
+
+    h5 {
+        color: #555555;
+        display: inline-block;
+        width: 30%;
+    }
+
+    .MesmaLinha {
+        display: flex;
+    }
+
+    ul {
+        padding-top: 25px;
+        padding-bottom: 25px;
+        padding-left: 50px;
+        display: grid;
+    }
+
+    hr {
+        size: 2px;
+        align: center;
+        width: 93%;
+    }
+
+    #Des {
+        width: 100%;
+        text-align: center;
+    }
+
+</style>
+
+
+
+    <tbody>
+@foreach (var item in Model) {
+
+        <div class="MesmaLinha">
+            <h6 id="S_D">Plano: Seguro de Casa - @item.TipoCobertura </h6>
+            <h6 id="SD_DC">Data do contrato: @item.DataContratoCarro</h6>
+            <h6 id="SD_DC">Data do expiração: @item.DataExpiraCarro</h6>
+
+        </div>
+
+        <label name="Observacao" class="form-label"></label>
+        <textarea name="Observacao" id="OBS_Texto" placeholder="Nenhuma observação para o seguro residêncial" class="form-control" style="width:80%; height: 50px; margin-bottom:25px ;">@item.Observacao</textarea>
+
+
+
+
+}
+
+

@@ -99,6 +99,10 @@ namespace Projeto_SolCar.Controllers
             return View(PlanosViewModel);
         }
 
+      
+
+
+
         // GET: ClientesController/Create
         public ActionResult Cadastrar()
         {
@@ -122,6 +126,12 @@ namespace Projeto_SolCar.Controllers
             }
         }
 
+
+        public IActionResult direcionaPlanoCarro()
+        {
+            return RedirectToAction("ListaPlanoCarro", "Planos");
+
+        }
 
 
 

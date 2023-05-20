@@ -151,6 +151,11 @@ namespace Projeto_SolCar.Controllers
             return RedirectToAction("Consulta", "Clientes");
         }
 
+        public ActionResult ListaPlanoCarro()
+        {
+            return View(db.SeguroCarro.ToList());
+        }
+
 
 
 
