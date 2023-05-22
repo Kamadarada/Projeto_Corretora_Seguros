@@ -30,3 +30,31 @@ h2{
 .btn btn-primary{
     margin:10px 10px;
 }
+
+
+
+.Slides2 {
+    max-width: 97.5%;
+    position: relative;
+    margin: auto;
+}
+
+.MeusSlides2 {
+    display: none;
+}
+
+
+.fad {
+    animation-name: fad;
+    animation-duration: 2.5s;
+}
+
+@keyframes fad {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
