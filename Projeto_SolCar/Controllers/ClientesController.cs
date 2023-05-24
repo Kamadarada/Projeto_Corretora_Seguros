@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations.Operations;
 using Projeto_SolCar.Entidades;
 using Projeto_SolCar.Models;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Projeto_SolCar.Controllers
 {
@@ -33,6 +34,11 @@ namespace Projeto_SolCar.Controllers
             return View(db.Clientes.Where(a => a.Id == id).FirstOrDefault());
         }
 
+        [HttpPost]
+        public JsonResult Ajax(string query)
+        {
+            return Json(db.Clientes.Where(a => a.Nome.Contains(query)));
+        }
         
 
         public ActionResult Consulta(string query, string tipoPesquisa)
@@ -44,12 +50,12 @@ namespace Projeto_SolCar.Controllers
 
             else if (tipoPesquisa == "porNome")
             {
-                return View(db.Clientes.Where(a => a.Nome.Contains(query)) );
+                return View(db.Clientes.Where(a => a.Nome.Contains(query) ).ToList() );
             }
 
             else if(tipoPesquisa == "porCPF")
             {
-                return View(db.Clientes.Where(a => a.CPF.Contains(query)));
+                return View(db.Clientes.Where(a => a.CPF.Contains(query)).ToList());
 
             }
 
