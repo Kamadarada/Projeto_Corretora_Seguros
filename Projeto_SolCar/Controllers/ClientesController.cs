@@ -89,7 +89,8 @@ namespace Projeto_SolCar.Controllers
                 CPF = Cliente.CPF,
                 Sexo = Cliente.Sexo,
                 Endereco = Cliente.Endereco,
-                Estado = Cliente.Estado
+                Estado = Cliente.Estado,
+                Id = Cliente.Id
 
             };
 
@@ -162,7 +163,9 @@ namespace Projeto_SolCar.Controllers
         // GET: ClientesController/Delete/5
         public ActionResult Delete(int id)
         {
-            db.Clientes.Remove(db.Clientes.Where(a => a.Id == id).FirstOrDefault());
+            //db.Clientes.Remove(db.Clientes.Where(a => a.Id == id).FirstOrDefault());
+            var Clientes = db.Clientes.Where(a => a.Id == id).Include(a => a.Planos).First();
+            db.Remove(Clientes);
             db.SaveChanges();
             return RedirectToAction("Consulta");
         }
