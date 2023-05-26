@@ -55,7 +55,7 @@
             </div>
             <div class="col-md-2">
                 <label asp-for="Telefone" class="form-label"></label>
-                <input asp-for="Telefone" placeholder="(00) 0000-0000" class="form-control" />
+                <input type="tel" id="TeleInp" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);" asp-for="Telefone" placeholder="(00) 0000-0000" class="form-control" />
                 <span asp-validation-for="Telefone" class="text-danger"></span>
             </div>
             <hr style="width:82%; margin-left:10px; margin-bottom:10px; margin-top:40px" />
@@ -125,6 +125,37 @@
         </form>
     </div>
 </div>
+
+
+<script>
+    function mask(o, f) {
+        setTimeout(function () {
+            var v = mphone(o.value);
+            if (v != o.value) {
+                o.value = v;
+            }
+        }, 1);
+    }
+
+
+
+    function mphone(v) {
+        var r = v.replace(/\D/g, "");
+        r = r.replace(/^0/, "");
+        if (r.length > 10) {
+            r = r.replace(/^(\d\d)(\d{5})(\d{4}).*/, "($1) $2-$3");
+        } else if (r.length > 5) {
+            r = r.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "($1) $2-$3");
+        } else if (r.length > 2) {
+            r = r.replace(/^(\d\d)(\d{0,5})/, "($1) $2");
+        }
+        return r;
+    }
+
+
+
+
+</script>
 
 
 
