@@ -41,33 +41,11 @@ namespace Projeto_SolCar.Controllers
         }
         
 
-        public ActionResult Consulta(string query, string tipoPesquisa)
+        public ActionResult Consulta()
         {
-            if (string.IsNullOrEmpty(query))
-            {
-                return View(db.Clientes.ToList());
-            }
-
-            else if (tipoPesquisa == "porNome")
-            {
-                return View(db.Clientes.Where(a => a.Nome.Contains(query) ).ToList() );
-            }
-
-            else if(tipoPesquisa == "porCPF")
-            {
-                return View(db.Clientes.Where(a => a.CPF.Contains(query)).ToList());
-
-            }
-
-            else
-            {
-                return View(db.Clientes.ToList());
-
-            }
-
-
-
-
+           
+          return View(db.Clientes.ToList());
+        
         }
 
         public ActionResult ConsultaPlano()
@@ -140,6 +118,7 @@ namespace Projeto_SolCar.Controllers
 
         }
 
+        
 
 
 

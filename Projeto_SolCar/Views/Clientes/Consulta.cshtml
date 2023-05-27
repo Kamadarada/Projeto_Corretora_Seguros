@@ -18,72 +18,86 @@
 
 </p>
 
+<head>
+
+    <link rel="stylesheet" href="/css/Gerenciador_Atividades_Curriculares.css" asp-append-version="true" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#InputS").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#tb tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+</head>
+
+
+
+
 <div style="margin-bottom:50px;" class="card">
     <div class="card-header"><strong>Pesquisar usuários</strong></div>
     <div style="background-color:#f2f2f2; border-color: #e86d27" class="card-body">
-        <form action="/Clientes/Consulta" method="get">
-            <div class="row">
-                
-                <select class="form-select" style="width:255px" name="tipoPesquisa">
-                    <option value="porNome">Buscar por nome</option>
-                    <option value="porCPF">Buscar por CPF</option>
+        
 
-                </select>
+        <form role="search" class="d-flex">
+            <div class="col-4">
+            
 
-                <div class="col-4">
-                    
-                    <input type="text" id="query" name="query" onkeypress="ajaxConsulta()" class="form-control" placeholder="Buscar cadastro" />
-                </div>
-
-
-
-                <div class="col-4">
-                    <button class="btn btn-success" type="submit">Buscar</button>
-                </div>
-
+                <input aria-label="Search" type="text" id="InputS" class="form-control" placeholder="Busque por Nome ou CPF" />
 
             </div>
         </form>
+
         
     </div>
 </div>
 
 
 
-<table class="table table-striped" id="TabelaTeste">
+<table class="table table-striped">
 
 
-    <thead style="text-align:center">
-            <tr>
-                
-                <th>Nome</th>
-                <th>Endereco</th>
-                <th>Telefone</th>
-                <th>CPF</th>
-                <th>Data Nascimento</th>
-                <th>Opções</th>
-            </tr>
-        </thead>
-    <tbody style="text-align:center" >
+
+
+    <thead class="table-orange" style="text-align:center;">
+        <tr style="border-radius:10px;position: sticky; top: 0; z-index: 1;">
+
+            <th>Nome</th>
+            <th>CEP</th>
+            <th>Telefone</th>
+            <th>CPF</th>
+            <th>Data de nascimento</th>
+            <th>Opções</th>
+            
+
+        </tr>
+    </thead>
+
+
+    <tbody id="tb" style="text-align:center" >
 
             @foreach (var item in Model)
             {
                 <tr>
                    
 
-                    <td>
+                    <td style="width:250px">
                         @item.Nome
                     </td>
 
-                    <td>
-                        @item.Endereco
+                <td style="width:150px">
+                        @item.CEP
                     </td>
 
-                    <td>
+                <td style="width:150px">
                         @item.Telefone
                     </td>
 
-                    <td>
+                <td style="width:150px">
                         @item.CPF
                     </td>
                     <td>
@@ -96,14 +110,14 @@
                     <a asp-action="Edit" class="btn btn-success" asp-route-id="@item?.Id">Editar</a>
                     <a style="color:white" class="btn btn-primary" asp-action="SelecionarPlano" asp-route-id="@item.Id">Adicionar plano</a>
 
-                </td>
+                    </td>
             
                 </tr>
 
 
 
             }
-        </tbody>
+    </tbody>
 
 
 
@@ -145,3 +159,7 @@
                     }
 
                     -->
+
+
+
+
