@@ -20,4 +20,18 @@ Server="SeuServidor/LocalHost";Database=NomeDatabase;Trusted_Connection=True
 ```
 String de conexão do SQL server, em caso de utilizar outro DB, pesquisar por < database > connection string
 
-### 
+### Adicionar migração para criar tabelas no banco de dados
+
+Abrir package manager console e executar o comando
+```bash
+add-migration < nome da migration > 
+```
+Após executar com sucesso, executar
+```bash
+update-database
+```
+
+Desta forma o sistema ja estará disponivel para uso. 
+
+ * Executar com IIS express em caso de erro de privacidade.
+
