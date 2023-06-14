@@ -26,7 +26,7 @@ Abrir package manager console e executar o comando
 ```bash
 add-migration < nome da migration > 
 ```
-Após executar com sucesso, executar
+Após isso, executar
 ```bash
 update-database
 ```
