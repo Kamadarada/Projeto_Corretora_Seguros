@@ -7,7 +7,7 @@ O sistema é de uso interno, portanto é possível cadastrar clientes e os plano
 
 ## Instalação
 
-## Bibliotecas necessárias
+Bibliotecas necessárias
 * Microsoft.EntityFramework.core
 * Microsoft.EntityFramework.core.tools
 * Microsoft.EntityFramework.core.SQLServer ou Microsoft.EntityFramework.core.< DB que estiver utilizando >
