@@ -7,6 +7,6 @@ O sistema é de uso interno, portanto é possível cadastrar clientes e os plano
 
 ### Conexão com DataBase
 
-> Server="SeuServidor/LocalHost";Database=NomeDatabase;Trusted_Connection=True
+<Server="SeuServidor/LocalHost";Database=NomeDatabase;Trusted_Connection=True>
 
 
