@@ -7,6 +7,9 @@ O sistema é de uso interno, portanto é possível cadastrar clientes e os plano
 
 ### Conexão com DataBase
 
-<Server="SeuServidor/LocalHost";Database=NomeDatabase;Trusted_Connection=True>
-
+String de conexão com banco de dados na Program.cs
+```bash
+Server="SeuServidor/LocalHost";Database=NomeDatabase;Trusted_Connection=True
+```
+String de conexão do SQL server, em caso de utilizar outro DB, pesquisar por <database> connection string
 
