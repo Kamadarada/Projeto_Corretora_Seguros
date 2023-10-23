@@ -3,7 +3,7 @@
 ### Sistema desenvolvido para projeto 3° ADS - Fatec - Taquaritinga
 
 Este sistema foi desenvolvido com objetivo de auxiliar a gestão de uma corretora de seguros da cidade de Matão - SP. 
-O sistema é de uso interno, sendo possível cadastrar clientes e os planos que estão contratando com a seguradora.
+O sistema é de uso interno, sendo possível cadastrar clientes, suas informações e planos contratados.
 ## Instalação
 
 ### Bibliotecas necessárias
