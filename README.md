@@ -34,3 +34,8 @@ Desta forma o sistema ja estará disponivel para uso.
 
  * Executar com IIS express em caso de erro de privacidade.
 
+<p align="center">
+  Criado por Felipe Kamada(https://github.com/Kamadarada)
+</p>
+
+
